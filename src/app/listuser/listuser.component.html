@@ -1,0 +1,135 @@
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<head>
+  <title>Update user</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" (click)="home()">
+          <i class="fa fa-home"></i>
+          Home
+          <span class="sr-only">(current)</span>
+          </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" (click)="listuser()">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          List User
+        </a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" (click)="adduser()">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+          Add User
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" (click)="updateuser()">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+          Update User
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" (click)="profile()">
+          <i class="fa fa-user-circle" aria-hidden="true"></i>  
+           Profile
+        </a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav " style="margin-left: 550px;">
+      <li class="nav-item">
+        <a class="nav-link" (click)="notif()">
+          <i class="fa fa-bell">
+            <span class="badge badge-danger">0</span>
+          </i>
+          Notification
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          
+          Logout
+        </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container">
+	<div class="row">
+	    
+	    
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+<!-- LIST -->
+<div class=col-md-12>
+    
+    <form id="form-list-user">
+            <legend>List of users</legend>
+    
+    <div class="pull-right">
+        <a class="btn btn-default-btn-xs btn-primary" (click)="listuser()"><i class="glyphicon glyphicon-refresh"></i> Refresh</a>
+        <a class="btn btn-default-btn-xs btn-success" (click)="adduser()"><i class="glyphicon glyphicon-plus"></i> New</a>
+    </div>
+<br><br><br>
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Adress</th>
+                <th>Phone</th>
+                <th>Cin</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Actions</th>
+            </tr>
+                
+        </thead>
+        <tbody id="form-list-client-body">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <!--a title="view this user" class="btn btn-default btn-sm "> <i class="glyphicon glyphicon-eye-open text-primary"></i> </a-->
+                    <a title="edit this user" class="btn btn-default btn-sm "  (click)="updateuser()"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>
+                    <a title="delete this user" class="btn btn-default btn-sm " (click)="deleteuser()"> <i class="glyphicon glyphicon-trash text-danger"></i> </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+
+    
+</div>
+	    
+	</div>
+</div>
+
