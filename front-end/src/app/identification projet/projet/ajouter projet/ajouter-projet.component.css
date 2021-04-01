@@ -1,0 +1,20 @@
+.titre {
+    text-align: center;
+    font-size: 200%;
+  }
+
+  .form-row {
+    margin-bottom: 100px;
+    
+  }
+  .col-auto1 {
+    margin-top :-50px;
+    margin-left: 820px;
+  }   
+  .col-auto2 {
+    margin-top :20px;
+    margin-left: 650px;
+  } 
+
+
+  

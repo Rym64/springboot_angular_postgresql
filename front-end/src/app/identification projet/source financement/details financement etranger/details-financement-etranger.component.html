@@ -1,0 +1,40 @@
+<button style="border:none;outline:none;background-color: white;position: relative;left:25px;bottom:20px" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+<br>
+<a>الرمز: </a>
+ {{financementEtranger.code}}   
+<br>                       
+<a>التسمية: </a>
+ {{financementEtranger.libelle}}
+<br>     
+<a>المبلغ بالعملة: </a>
+ {{financementEtranger.montant}} 
+<br>             
+<a>العملة: </a>
+ {{financementEtranger.devise}}
+<br>     
+<a>سعر الصرف: </a>
+ {{financementEtranger.taux_dechange}} 
+<br>           
+<a>المبلغ بالدينار التونسي</a>  : {{financementEtranger.montant_dt}} 
+<br>            
+<a>المبلغ بالعملة محيّن: </a>
+ {{financementEtranger.montant_actualise}}
+<br>     
+<a>تاريخ التحيين: </a>
+ {{financementEtranger.date_actualisation | date : 'yyyy-MM-dd'}} 
+<br>           
+<a>الممول: </a>
+ {{financementEtranger.financeur}}
+<br>     
+<a>تاريخ الامضاء: </a>
+ {{financementEtranger.date_signature | date : 'yyyy-MM-dd'}}
+<br>              
+<a>تاريخ بداية التمويل : </a>
+ {{financementEtranger.date_debut | date : 'yyyy-MM-dd'}}
+<br>     
+<a>تاريخ نهاية التمويل: </a>
+ {{financementEtranger.date_cloture | date : 'yyyy-MM-dd'}}  
+<br>            
+<a>تاريخ آخر أجل  للتمويل: </a>
+ {{financementEtranger.date_delai | date : 'yyyy-MM-dd'}}
+   

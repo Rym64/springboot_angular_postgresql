@@ -1,0 +1,137 @@
+<mat-expansion-panel class="mat-elevation-z0" #thisPanel hideToggle>
+  <mat-expansion-panel-header class="disable_ripple">
+
+    <div *ngIf="!thisPanel.expanded">
+      <mat-icon>add</mat-icon>
+    </div>
+    <div *ngIf="thisPanel.expanded">
+      <mat-icon>clear</mat-icon>
+    </div>
+  </mat-expansion-panel-header>
+<div class="container">
+  <div class="row" style="text-align: center;">
+    <img src="../assets/images/thebluetitle.png" width="300" height="110">
+    <h1 style="color:white;text-align: center;position:relative;bottom:87px;"> إضافة مستخدم  </h1>
+  </div>
+
+
+  <form  #signupForm="ngForm" [formGroup]="this.webService.dataForm" (ngSubmit)="onSubmit()">
+
+
+    <div style="display:inline-block;width:1145px;">
+   
+
+    <div class="form-group col-md-6">
+      <label  ></label>
+      <input  style="height:50px;" type="text" class="form-control" required formControlName="last_name" id="last_name" >
+      
+    </div>
+
+    <div class="form-group col-md-6">
+      <label >اللقب</label>
+      <input  style="height:50px;" type="text" class="form-control" required formControlName="name" id="name" >
+      
+    </div>
+  </div>
+    
+
+  <div class="form-group">
+      <label style="position:relative;right:15px">إسم المستخدم</label>
+    <input style="position:relative;right:15px;width:1110px;height:50px;" type="text" class="form-control" required
+      formControlName="username" id="username">
+   
+  </div>
+
+  
+  <div style="display:inline-block;width:1145px;">
+
+    <div class="form-group col-md-6">
+      <label  >كلمة السر</label>
+      <input   style="height:50px;" type="password" class="form-control" required formControlName="password" id="password" >
+     
+    </div>
+
+    <div class="form-group col-md-6">
+      <label >البريد الالكتروني</label>
+      <input  style="height:50px;" type="email" class="form-control" required formControlName="email" id="email" >
+      
+    </div>
+
+   
+  </div>
+
+    <div class="form-group" style="position: relative;right:12px;">
+      <label >               تاريخ الولادة 
+    </label>
+    <br>
+    
+    <mat-form-field appearance="fill" [style.width.px]=1115>
+    <mat-label>إختيار تاريخ </mat-label>
+    <input matInput [matDatepicker]="picker3"  required  id="date_naissance" name="date_naissance" formControlName="date_naissance" >
+    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+    <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+    
+    
+    </div>
+
+    <div style="display:inline-block;width:1145px;">
+
+      <div class="form-group col-md-6">
+        <div style="position:relative;top:38px;" >
+          <input type="radio" id="femelle" name="sexe" value="أنثى" required formControlName="sexe">
+          <label for="ghayr_mouaatal"> أنثى </label><br>
+        </div>
+    
+        <div style="position:relative;right:100px;top:10px;" >
+          <input type="radio" id="male" name="sexe" value="ذكر" required formControlName="sexe"> 
+          <label for="mouaattal"> ذكر  </label><br>
+        </div>
+        </div>
+
+
+    <div class="form-group col-md-6">
+      <label >العنوان</label>
+      <select style="height:50px;" type="text" class="form-control" required id="adresse" name="adresse" formControlName="adresse">
+        <option [value]="" disabled selected>choose one</option>
+        <option *ngFor="let cheese of gouvernoratKeys"  [value]="gouvernorat[cheese]" > {{gouvernorat[cheese]}} </option>
+      </select>
+      
+
+    </div>
+
+
+    </div>
+   
+   
+
+
+    <div style="text-align: center;margin: 0 auto;position: relative;top:30px;" class="form-group">
+      <label>أضف صورة   </label>
+
+          <input style="margin: 0 auto;" type="file" accept="image/*" (change)="onSelectFile($event)">
+
+        </div>
+
+       
+
+       
+    
+
+
+
+    <button  type="submit" style="position:relative;right:530px;top:50px;" class="btn btn-primary">إضافة </button>
+ 
+    <span style="position: relative;right:300px;bottom:30px;">          <img [src]="imgURL"  height="70" width="70" *ngIf="imgURL">
+    </span>
+    
+
+  </form>
+  </div>
+  <br>
+  <br>
+  </mat-expansion-panel>
+
+
+
+

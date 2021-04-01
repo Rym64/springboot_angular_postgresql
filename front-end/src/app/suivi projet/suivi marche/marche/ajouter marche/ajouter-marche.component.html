@@ -1,0 +1,164 @@
+           
+       <mat-expansion-panel class="mat-elevation-z0" #thisPanel hideToggle>
+        <mat-expansion-panel-header class="disable_ripple">
+       
+        <div *ngIf="!thisPanel.expanded">	<mat-icon>add</mat-icon></div>
+        <div *ngIf="thisPanel.expanded"><mat-icon>clear</mat-icon></div>
+        </mat-expansion-panel-header>
+<div class="container">
+  <div class="row" style="text-align: center;">
+    <img src="../assets/images/thebluetitle.png" width="300" height="110">
+    <h1 style="color:white;text-align: center;position:relative;bottom:87px;">إضافة صفقة  </h1>
+  </div>
+  <br>
+  <br>
+<form class="rtl" (ngSubmit)="onSubmit()" >
+
+  <div style="display:inline-block;width:1145px;">
+  <div class="form-group col-md-6" [class.has-error]="libelleControl.invalid && libelleControl.touched">
+    <label >التسمية </label>
+    <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="marche.libelle" id="libelle" name="libelle" #libelleControl="ngModel">
+    <span class="help-block" *ngIf="libelleControl.invalid && libelleControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+
+<div class="form-group col-md-6" [class.has-error]="codeControl.invalid && codeControl.touched">
+  <label >الرمز  </label>
+  <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="marche.code" id="code" name="code" #codeControl="ngModel">
+  <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+</div>
+
+
+
+<div style="display:inline-block;width:1145px;">
+  <div class="form-group col-md-6" [class.has-error]="montantDtControl.invalid && montantDtControl.touched">
+    <label >المبلغ بالدينار التونسي  </label>
+    <input style="height: 50px;" type="number" class="form-control" required [(ngModel)]="marche.montant_dt" id="montant_dt" name="montant_dt" #montantDtControl="ngModel">
+    <span class="help-block" *ngIf="montantDtControl.invalid && montantDtControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+
+<div class="form-group col-md-6" [class.has-error]="fournisseurControl.invalid && fournisseurControl.touched">
+  <label >المزوّد    </label>
+  <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="marche.fournisseur" id="fournisseur" name="fournisseur" #fournisseurControl="ngModel">
+  <span class="help-block" *ngIf="fournisseurControl.invalid && fournisseurControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+</div>
+
+
+
+
+<div style="display:inline-block;width:1145px;">
+<div class="form-group col-md-6" [class.has-error]="paysMarcheControl.invalid && paysMarcheControl.touched" >
+  <label >بلد التمويل  </label>
+  <select class="form-control" [(ngModel)]="marche.pays_marche" id="pays_marche" name="pays_marche" #paysMarcheControl="ngModel" style="height: 50px">
+    <option value='' disabled selected>lieu</option>
+    <option *ngFor="let paysNom of paysKeys" [value]="pays[paysNom]"> {{pays[paysNom]}} </option>
+
+  </select>
+  <span class="help-block" *ngIf="paysMarcheControl.invalid && paysMarcheControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+
+<div class="form-group col-md-6" [class.has-error]="deviseControl.invalid && deviseControl.touched">
+  <label >العملة  </label>
+  <select class="form-control" [(ngModel)]="marche.devise" id="devise" name="devise" #deviseControl="ngModel" style="height: 50px">
+    <option value='' disabled selected>devise</option>
+    <option *ngFor="let deviseNom of devisesKeys" [value]="devise[deviseNom]"> {{devise[deviseNom]}} </option>
+
+  </select>
+<span class="help-block" *ngIf="deviseControl.invalid && deviseControl.touched">هذه الخانة إجبارية</span>
+  
+</div>
+</div>
+
+
+
+<div style="display:inline-block;width:1145px;">
+
+  <div class="form-group col-md-6" [class.has-error]="montantActualiseControl.invalid && montantActualiseControl.touched">
+    <label > المبلغ محيّن  </label>
+    <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="marche.montant_actualise" id="montant_actualise" name="montant_actualise" #montantActualiseControl="ngModel">
+    <span class="help-block" *ngIf="montantActualiseControl.invalid && montantActualiseControl.touched">هذه الخانة إجبارية</span>
+  
+  </div>
+
+
+<div class="form-group col-md-6" [class.has-error]="dateSignatureControl.invalid && dateSignatureControl.touched">
+  <label >             تاريخ الامضاء &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</label>
+<br>
+<mat-form-field appearance="fill" [style.width.px]=540>
+<mat-label>إختيار تاريخ </mat-label>
+<input  matInput [matDatepicker]="picker1" required [(ngModel)]="marche.date_signature" id="date_signature" name="date_signature" #dateSignatureControl="ngModel">
+<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+<mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>
+<span class="help-block" *ngIf="dateSignatureControl.invalid && dateSignatureControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+</div>
+
+<div style="display:inline-block;width:1145px;">
+<div class="form-group col-md-6" [class.has-error]="dateFinTravauxReelleControl.invalid && dateFinTravauxReelleControl.touched">
+  <label >                تاريخ الإنتهاء الفعلي  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</label>
+<br>
+<mat-form-field appearance="fill" [style.width.px]=540>
+<mat-label>إختيار تاريخ </mat-label>
+<input  matInput [matDatepicker]="picker4" required [(ngModel)]="marche.date_fin_travaux_reelle" id="date_fin_travaux_reelle" name="date_fin_travaux_reelle" #dateFinTravauxReelleControl="ngModel">
+<mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+<mat-datepicker #picker4></mat-datepicker>
+</mat-form-field>
+<span class="help-block" *ngIf="dateFinTravauxReelleControl.invalid && dateFinTravauxReelleControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+
+  <div class="form-group col-md-6" [class.has-error]="dateFinTravauxEstimeeControl.invalid && dateFinTravauxEstimeeControl.touched">
+    <label >            تاريخ الإنتهاء التقديري &nbsp;&nbsp;&nbsp;&nbsp;
+  </label>
+  <br>
+  <mat-form-field appearance="fill" [style.width.px]=540>
+  <mat-label>إختيار تاريخ </mat-label>
+  <input  matInput [matDatepicker]="picker3" required [(ngModel)]="marche.date_fin_travaux_estimee" id="date_fin_travaux_estimee" name="date_fin_travaux_estimee" #dateFinTravauxEstimeeControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+  <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field>
+  <span class="help-block" *ngIf="dateFinTravauxEstimeeControl.invalid && dateFinTravauxEstimeeControl.touched">هذه الخانة إجبارية</span>
+  
+</div>
+</div>
+
+    <div style="display:inline-block;width:1145px;">
+    <div class="form-group col-md-6" [class.has-error]="periodeTravailControl.invalid && periodeTravailControl.touched">
+      <label >مدة الأشغال  </label>
+      <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="marche.periode_travail" id="periode_travail" name="periode_travail" #periodeTravailControl="ngModel"> 
+      <span class="help-block" *ngIf="periodeTravailControl.invalid && periodeTravailControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+
+    
+
+   
+    <div class="form-group col-md-6" [class.has-error]="niveauControl.invalid && niveauControl.touched">
+      <label >مستوى التقدم  </label>
+      <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="marche.niveau" id="niveau" name="niveau" #niveauControl="ngModel">
+      <span class="help-block" *ngIf="niveauControl.invalid && niveauControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+
+  </div>
+    
+  
+    
+
+    
+<br>
+
+<button style="position:relative;right:535px;" type="submit" class="btn btn-primary">إضافة </button>
+</form>
+</div>
+</mat-expansion-panel>

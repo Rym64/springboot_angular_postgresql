@@ -1,0 +1,39 @@
+<button style="border:none;outline:none;background-color: white;position: relative;left:25px;bottom:20px" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+<br>
+
+<a>الرمز</a>  : {{projet.code}}
+<br>
+<a>التمسية</a>  : {{projet.libelle}}
+<br>
+<a>الوصف</a>  : {{projet.description}}
+<br>
+<a>تاريخ الإنطلاق : </a>
+ {{projet.date_debut | date : 'yyyy-MM-dd'}}
+<br>
+<a>تاريخ الإنطلاق محيّن : </a>
+ {{projet.date_debut_actualisee | date : 'yyyy-MM-dd'}}
+<br>
+<a>تاريخ الإنتهاء : </a>
+ {{projet.date_fin | date : 'yyyy-MM-dd'}}
+<br>
+<a>تاريخ الإنتهاء محيّن : </a>
+ {{projet.date_fin_actualisee | date : 'yyyy-MM-dd'}}
+<br>
+
+<a>الكلفة التقديرية : </a>
+ {{projet. cout}}
+<br>
+<a>الكلفة التقديرية محيّنة: </a>
+ {{projet.cout_actualise}}
+<br>
+<a>القطاع: </a>
+ {{projet.secteur}}
+<br>
+<a>مكان التنفيذ : </a>
+ {{projet.lieu_projet}}
+<br>
+<a>مستوى التقدم : </a>
+ {{projet.stade}}
+<br>
+{{projet.flag}}
+<br>

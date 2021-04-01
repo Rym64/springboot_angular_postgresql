@@ -1,0 +1,12 @@
+.rectangle3 {
+    width: 1200px;
+    position: absolute;
+    background: rgba(255, 255, 255);
+    margin-right: 80px;
+    border-radius: 20px;
+    z-index: -1;
+  }
+
+  ::ng-deep .mat-dialog-container {
+    overflow-x: hidden !important;
+}

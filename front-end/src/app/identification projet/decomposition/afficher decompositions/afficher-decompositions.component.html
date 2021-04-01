@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+
+<html dir="rtl" class="no-js">
+<head>
+ 
+</head>
+<body>
+
+ 
+  <div *ngFor="let user of usersList" class="rectangle1" >
+    <div *ngIf="user.role=='مُشْرِف'; else simpleUser">
+    <div style="width:320px;position:relative;top:20px;">
+      <button style="background-color: Transparent;border:none;outline:none;" (click)="afficherProjets()"><img src="../assets/images/picture19.png" width="210" height="50"
+        style="margin-right:80px;"></button>
+    </div>
+
+    <div style="position:relative;right:550px;bottom:93px;display:inline-block;">
+      <button (click)="afficherUtilisateurs()" style="background-color:transparent;border:none;outline:none;"><img src="../assets/images/square-icon.png" width="90" height="70"
+       style="border-radius: 10%"   ></button>
+      </div>
+
+      <div style="position:relative;right:650px;bottom:93px;display:inline-block;">
+        <button (click)="afficherUserProfilProjet()" style="background-color:transparent;border:none;outline:none;"><img src="../assets/images/secondSquare.jpg" width="90" height="70"
+         style="border-radius: 10%"   ></button>
+        </div>
+    
+      <div class="dropdown1"
+        style="position: relative;right:780px;bottom:52px;height:80px;">
+
+        <img class="card-img-top img-responsive" src="{{this.webService.serverUrl+'Imgarticles/'+user.username}}"
+        style="height :55px;width:55px; border-radius: 50%;position:relative;top:15px;right:100px;" alt="">
+        
+        <button style="position: relative;bottom:40px;right:20px;" class="dropbtn1">
+          <mat-icon style="position: relative;top:7px;">arrow_drop_down</mat-icon> مرحبا {{user.username}}
+        </button>
+     
+        <div class="dropdown-content1 dropdown-menu-center1 " style="z-index: 2;top:82px">
+          <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="updateUserCurrent(user)"> تعديل بيانات الحساب  </button>
+          <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="loggedOut()"> خروج </button>
+        </div>
+      </div>
+   
+    </div>
+
+
+  <ng-template #simpleUser>
+    <div style="width:320px;position:relative;top:20px;">
+      <button style="background-color: Transparent;border:none;outline:none;" (click)="afficherProjets()"><img src="../assets/images/picture19.png" width="210" height="50"
+        style="margin-right:80px;"></button>
+      </div>
+  
+  
+      
+        <div *ngFor="let user of usersList" class="dropdown1"
+          style="position: relative;right:980px;bottom:52px;height:80px;">
+  
+          <img class="card-img-top img-responsive" src="{{this.webService.serverUrl+'Imgarticles/'+user.username}}"
+          style="height :55px;width:55px; border-radius: 50%;position:relative;top:15px;right:100px;" alt="">
+          
+          <button style="position: relative;bottom:40px;right:20px;" class="dropbtn1">
+            <mat-icon style="position: relative;top:7px;">arrow_drop_down</mat-icon> مرحبا {{user.username}}
+          </button>
+       
+          <div class="dropdown-content1 dropdown-menu-center1 " style="z-index: 2;top:82px">
+            <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="updateUserCurrent(user)"> تعديل بيانات الحساب  </button>
+            <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="loggedOut()"> خروج </button>
+          </div>
+        </div>
+  </ng-template>
+
+  </div>
+
+  <div style="width:400px;position:relative;right:500px;bottom:30px;">
+    <img src="../assets/images/Sans titre.png" width="350" height="80"
+        >
+    </div>
+
+
+
+  <div class="rectangle3" style="height : 2000px">
+    <div style="background-image: url('../assets/images/shutterstock_1247187910-1280x720.jpeg')" class="rectangle2">
+    </div>
+    <div class="rectangle4">
+
+     
+
+
+
+      <ul style="list-style: none;">
+
+
+
+        <li style="float:right">
+          <div class="dropdown1">
+            <button class="dropbtn1"> تحديد المشروع
+            </button>
+            <div class="dropdown-content1 dropdown-menu-center1">
+             
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherFinancements(firstDialog,secondDialog)">مصادر التمويل </button>
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherDecompositions(firstDialog,secondDialog)"> تقسيم المشروع </button>
+
+            </div>
+          </div>
+        </li>
+
+
+        <li style="float:right;position:relative;right:150px;">
+          <div class="dropdown1">
+            <button class="dropbtn1"> متابعة المشروع
+            </button>
+            <div class="dropdown-content1 dropdown-menu-center1">
+             
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherAppelsOffre(firstDialog,secondDialog)"> متابعة سوق المشروع  </button>
+
+           
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherAvancementMarche(firstDialog,secondDialog)">  المتابعة المادية للمشروع </button>
+
+            </div>
+          </div>
+        </li>
+
+
+
+        <li style="float:right;position:relative;right:300px;">
+          <div class="dropdown1">
+            <button class="dropbtn1"> تقييم المشروع
+            </button>
+            <div class="dropdown-content1 dropdown-menu-center1">
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherObjectifs(firstDialog,secondDialog)">   الأهداف والمؤشرات   </button>
+
+             
+            </div>
+          </div>
+        </li>
+
+
+     
+
+
+
+
+
+
+      </ul>
+
+    </div>
+    <br>
+    <br>
+
+
+
+    <div class="container">
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="row" style="text-align: center;">
+        <img src="../assets/images/thebrowntitle.png" width="350" height="110">
+        <h1 style="color:white;text-align: center;position:relative;bottom:87px;"> قائمة تقسيمات المشروع </h1>
+      </div>
+      
+      <div style="position: relative;right:50px;top:20px;width:50px;height:65px;">
+      <a  routerLink="/afficherDecompositions" (click)="downloadPdf()">
+         <img src="../assets/images/logoiconpdf.png" width="50px" height="60px" style="border-radius: 5px;">
+      </a>
+    </div>
+    <div style="position:relative;right:800px;bottom:25px;height:40px;width:300px;">
+   <input class="form-control" style="width: 200px;" type="text" [(ngModel)]="recherche">
+    <button class="btn btn-primary" (click)="rechercherDecomposition(recherche)" style="border:none;background-color:#c69c6d;height:35px;position: relative;right:210px;bottom:35px;"><span style="position: relative;bottom:8px;">بحث</span> &nbsp; <mat-icon style="margin-top:0;padding-top:0;height:7px;width:15px;">search</mat-icon></button>  
+  </div>
+    
+      <br>
+    
+    <mat-expansion-panel style="width:950px;" class="mat-elevation-z0" #thisPanel hideToggle>
+      <mat-expansion-panel-header class="disable_ripple">
+     
+      <div *ngIf="!thisPanel.expanded">	<mat-icon>add</mat-icon></div>
+      <div *ngIf="thisPanel.expanded"><mat-icon>clear</mat-icon></div>
+      </mat-expansion-panel-header>
+      <div class="container">
+
+        <form class="rtl" (ngSubmit)="onSubmit(decomposition)">
+        
+          <div style="display:inline-block;width:950px;">
+          <div class="form-group col-md-6" [class.has-error]="libelleControl.invalid && libelleControl.touched" style="position: relative;left:200px;">
+            <label  >التسمية </label>
+            <input style="height: 50px;width:300px;" type="text" class="form-control" required [(ngModel)]="decomposition1.libelle" id="libelle" name="libelle" #libelleControl="ngModel">
+            <span class="help-block" *ngIf="libelleControl.invalid && libelleControl.touched">هذه الخانة إجبارية</span>
+
+          </div>
+
+        <div class="form-group col-md-6" style="width:300px;position:relative;left:220px;" [class.has-error]="codeControl.invalid && codeControl.touched">
+          <label >الرمز  </label>
+          <input style="height: 50px;width:300px" type="text" class="form-control" required [(ngModel)]="decomposition1.code" id="code" name="code" #codeControl="ngModel">
+          <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+
+        </div>
+      </div>
+        
+        
+      <div   [class.has-error]="typeDecompositionControl.invalid && typeDecompositionControl.touched" style="position:relative;left:35px;width:625px;">
+        <label > النوع  </label>
+        <select class="form-control" [(ngModel)]="decomposition1.type_decomposition" id="type_decomposition" name="type_decomposition" #typeDecompositionControl="ngModel" style="height: 50px;">
+          <option value='' disabled selected>type</option>
+          <option *ngFor="let typeDecompositionNom of typeDecompositionKeys" [value]="typeDecomposition[typeDecompositionNom]"> {{typeDecomposition[typeDecompositionNom]}} </option>
+    
+        </select>
+        <span class="help-block" *ngIf="typeDecompositionControl.invalid && typeDecompositionControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+    <br>
+        
+         
+      <div style="display:inline-block;width:950px;">
+        <div  class="form-group col-md-6" style="position: relative;left:200px;" [class.has-error]="dateDebutControl.invalid && dateDebutControl.touched">
+          <label >              تاريخ الإنطلاق   
+        </label>
+        <br>
+        <mat-form-field appearance="fill" [style.width.px]=300>
+        <mat-label>إختيار تاريخ </mat-label>
+        <input  matInput [matDatepicker]="picker1" required [(ngModel)]="decomposition1.date_debut" id="date_debut" name="date_debut" #dateDebutControl="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <span class="help-block" *ngIf="dateDebutControl.invalid && dateDebutControl.touched">هذه الخانة إجبارية</span>
+ 
+      </div>
+        
+        <div class="form-group col-md-6" style="width:300px;position:relative;left:220px;" [class.has-error]="montantControl.invalid && montantControl.touched">
+          <label  >المبلغ  </label>
+          <input style="height: 50px;width:300px;" type="number" class="form-control" required [(ngModel)]="decomposition1.montant" id="montant" name="montant" #montantControl="ngModel">
+          <span class="help-block" *ngIf="montantControl.invalid && montantControl.touched">هذه الخانة إجبارية</span>
+
+        </div>
+      </div>
+        
+       
+
+
+       
+
+        
+        <div style="display:inline-block;width:950px;">
+       
+
+        <div  class="form-group col-md-6" style="position:relative;left:200px;" [class.has-error]="dateFinControl.invalid && dateFinControl.touched">
+          <label >               تاريخ الإنتهاء 
+             
+        </label>
+        <br> 
+        <mat-form-field appearance="fill" [style.width.px]=300>
+        <mat-label>إختيار تاريخ </mat-label>
+        <input  matInput [matDatepicker]="picker3" required [(ngModel)]="decomposition1.date_fin" id="date_fin" name="date_fin" #dateFinControl="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+        <span class="help-block" *ngIf="dateFinControl.invalid && dateFinControl.touched">هذه الخانة إجبارية</span>
+
+        </div>
+
+        <div  class="form-group col-md-6" [class.has-error]="dateDebutActualiseeControl.invalid && dateDebutActualiseeControl.touched" style="position: relative;left:220px;width:300px;">
+          <label >               تاريخ الإنطلاق محيّن  
+            
+        </label>
+        <br>  
+        <mat-form-field appearance="fill" [style.width.px]=300>
+        <mat-label>إختيار تاريخ </mat-label>
+        <input  matInput [matDatepicker]="picker4" required [(ngModel)]="decomposition1.date_debut_actualisee" id="date_debut_actualisee" name="date_debut_actualisee" #dateDebutActualiseeControl="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+        <mat-datepicker #picker4></mat-datepicker>
+        </mat-form-field>
+        <span class="help-block" *ngIf="dateDebutActualiseeControl.invalid && dateDebutActualiseeControl.touched">هذه الخانة إجبارية</span>
+
+        </div>
+      </div>
+
+      
+
+       
+
+      <div style="display:inline-block;width:950px;">
+      <div  class="form-group col-md-6" [class.has-error]="niveauDecompositionControl.invalid && niveauDecompositionControl.touched" style="position: relative;left:200px;">
+        <label  > مستوى التقدم %    </label>
+        <input style="height: 50px;width:300px;" type="number" class="form-control" required [(ngModel)]="decomposition1.niveau_decomposition" id="niveau_decomposition" name="niveau_decomposition" #niveauDecompositionControl="ngModel">
+        <span class="help-block" *ngIf="niveauDecompositionControl.invalid && niveauDecompositionControl.touched">هذه الخانة إجبارية</span>
+
+      </div>
+        <div  class="form-group col-md-6" [class.has-error]="dateFinActualiseeControl.invalid && dateFinActualiseeControl.touched" style="position: relative;left:220px;width:300px;bottom:5px;">
+          <label >               تاريخ الإنتهاء محيّن   
+        </label>
+        <br>
+        <mat-form-field appearance="fill" [style.width.px]=300>
+        <mat-label>إختيار تاريخ </mat-label>
+        <input  matInput [matDatepicker]="picker5" required [(ngModel)]="decomposition1.date_fin_actualisee" id="date_fin_actualisee" name="date_fin_actualisee" #dateFinActualiseeControl="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+        <mat-datepicker #picker5></mat-datepicker>
+        </mat-form-field>
+        <span class="help-block" *ngIf="dateFinActualiseeControl.invalid && dateFinActualiseeControl.touched">هذه الخانة إجبارية</span>
+
+        </div>
+
+
+       
+    </div>
+        
+       
+         
+        
+     
+        
+        <button style="position: relative;right:250px;top:50px;"type="submit" class="btn btn-primary">إضافة </button>
+      
+      </form>
+      <br>
+        </div>
+        <br>
+      
+                 </mat-expansion-panel>
+
+                 <br>
+     
+    <div  *ngFor="let decomposition of decompositionsList;">
+                    
+      <div  [style.margin-right]="decomposition.degres_decomposition*50+'px'"> 
+        <div style="margin-bottom:50px;" *ngIf="decomposition.degres_decomposition==2;else premierDeuxiemeDegres">
+          <b style="border: 1px solid black;border-top:none;border-left:none;"> {{decomposition.libelle}} </b>
+          <span><button style=" border: none;background-color: white;" (click)="afficherDetails(decomposition)" class="btn btn-primary mb-2"><mat-icon style="color:green">assignment</mat-icon>  </button></span>
+
+          <span><button style=" border: none;background-color: white;" (click)="updateDecomposition(decomposition)" class="btn btn-primary mb-2"><mat-icon style="color:blue">create</mat-icon>  </button></span>
+        
+                            
+          <span><button style=" border: none;background-color: white;" (click)="deleteDecomposition(decomposition)" class="btn btn-primary mb-2">	<mat-icon style="color:red">delete_outline</mat-icon> </button></span>
+           
+        </div>    
+
+        <ng-template #premierDeuxiemeDegres>
+          <b style="border: 1px solid black;border-top:none;border-left:none;"> {{decomposition.libelle}} </b>
+          <span><button style=" border: none;background-color: white;" (click)="afficherDetails(decomposition)" class="btn btn-primary mb-2"><mat-icon style="color:green">assignment</mat-icon>  </button></span>
+
+          <span><button style=" border: none;background-color: white;" (click)="updateDecomposition(decomposition)" class="btn btn-primary mb-2"><mat-icon style="color:blue">create</mat-icon>  </button></span>
+        
+                            
+          <span><button style=" border: none;background-color: white;" (click)="deleteDecomposition(decomposition)" class="btn btn-primary mb-2">	<mat-icon style="color:red">delete_outline</mat-icon> </button></span>
+          
+          
+          <mat-expansion-panel style="width:820px;position:relative;right:260px;bottom:42px;" class="mat-elevation-z0" #thisPanel hideToggle>
+            <mat-expansion-panel-header class="disable_ripple">
+           
+            <div *ngIf="!thisPanel.expanded">	<mat-icon>add</mat-icon></div>
+            <div *ngIf="thisPanel.expanded"><mat-icon>clear</mat-icon></div>
+            </mat-expansion-panel-header>
+            <div class="container">
+      
+              <form class="rtl" (ngSubmit)="onSubmit(decomposition)">
+              
+                <div style="display:inline-block;width:950px;">
+                <div class="form-group col-md-6" [class.has-error]="libelleControl.invalid && libelleControl.touched" style="position: relative;left:200px;">
+                  <label  >التسمية </label>
+                  <input style="height: 50px;width:300px;" type="text" class="form-control" required [(ngModel)]="decomposition1.libelle" id="libelle" name="libelle" #libelleControl="ngModel">
+                  <span class="help-block" *ngIf="libelleControl.invalid && libelleControl.touched">هذه الخانة إجبارية</span>
+      
+                </div>
+      
+              <div class="form-group col-md-6" style="width:300px;position:relative;left:220px;" [class.has-error]="codeControl.invalid && codeControl.touched">
+                <label >الرمز  </label>
+                <input style="height: 50px;width:300px" type="text" class="form-control" required [(ngModel)]="decomposition1.code" id="code" name="code" #codeControl="ngModel">
+                <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+      
+              </div>
+            </div>
+              
+            <div   [class.has-error]="typeDecompositionControl.invalid && typeDecompositionControl.touched" style="position:relative;left:35px;width:625px;">
+              <label > النوع  </label>
+              <select class="form-control" [(ngModel)]="decomposition1.type_decomposition" id="type_decomposition" name="type_decomposition" #typeDecompositionControl="ngModel" style="height: 50px;">
+                <option value='' disabled selected>type</option>
+                <option *ngFor="let typeDecompositionNom of typeDecompositionKeys" [value]="typeDecomposition[typeDecompositionNom]"> {{typeDecomposition[typeDecompositionNom]}} </option>
+          
+              </select>
+              <span class="help-block" *ngIf="typeDecompositionControl.invalid && typeDecompositionControl.touched">هذه الخانة إجبارية</span>
+     
+          </div>
+          <br>
+            
+              
+               
+            <div style="display:inline-block;width:950px;">
+              <div  class="form-group col-md-6" style="position: relative;left:200px;" [class.has-error]="dateDebutControl.invalid && dateDebutControl.touched">
+                <label >              تاريخ الإنطلاق   
+              </label>
+              <br>
+              <mat-form-field appearance="fill" [style.width.px]=300>
+              <mat-label>إختيار تاريخ </mat-label>
+              <input  matInput [matDatepicker]="picker1" required [(ngModel)]="decomposition1.date_debut" id="date_debut" name="date_debut" #dateDebutControl="ngModel">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              <span class="help-block" *ngIf="dateDebutControl.invalid && dateDebutControl.touched">هذه الخانة إجبارية</span>
+       
+            </div>
+              
+              <div class="form-group col-md-6" style="width:300px;position:relative;left:220px;" [class.has-error]="montantControl.invalid && montantControl.touched">
+                <label  >المبلغ  </label>
+                <input style="height: 50px;width:300px;" type="number" class="form-control" required [(ngModel)]="decomposition1.montant" id="montant" name="montant" #montantControl="ngModel">
+                <span class="help-block" *ngIf="montantControl.invalid && montantControl.touched">هذه الخانة إجبارية</span>
+      
+              </div>
+            </div>
+              
+             
+      
+      
+             
+      
+              
+              <div style="display:inline-block;width:950px;">
+             
+      
+              <div  class="form-group col-md-6" style="position:relative;left:200px;" [class.has-error]="dateFinControl.invalid && dateFinControl.touched">
+                <label >               تاريخ الإنتهاء 
+                   
+              </label>
+              <br> 
+              <mat-form-field appearance="fill" [style.width.px]=300>
+              <mat-label>إختيار تاريخ </mat-label>
+              <input  matInput [matDatepicker]="picker3" required [(ngModel)]="decomposition1.date_fin" id="date_fin" name="date_fin" #dateFinControl="ngModel">
+              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
+              </mat-form-field>
+              <span class="help-block" *ngIf="dateFinControl.invalid && dateFinControl.touched">هذه الخانة إجبارية</span>
+      
+              </div>
+      
+              <div  class="form-group col-md-6" [class.has-error]="dateDebutActualiseeControl.invalid && dateDebutActualiseeControl.touched" style="position: relative;left:220px;width:300px;">
+                <label >               تاريخ الإنطلاق محيّن  
+                  
+              </label>
+              <br>  
+              <mat-form-field appearance="fill" [style.width.px]=300>
+              <mat-label>إختيار تاريخ </mat-label>
+              <input  matInput [matDatepicker]="picker4" required [(ngModel)]="decomposition1.date_debut_actualisee" id="date_debut_actualisee" name="date_debut_actualisee" #dateDebutActualiseeControl="ngModel">
+              <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+              <mat-datepicker #picker4></mat-datepicker>
+              </mat-form-field>
+              <span class="help-block" *ngIf="dateDebutActualiseeControl.invalid && dateDebutActualiseeControl.touched">هذه الخانة إجبارية</span>
+      
+              </div>
+            </div>
+      
+            
+      
+          
+            <div style="display:inline-block;width:950px;">
+            <div  class="form-group col-md-6" [class.has-error]="niveauDecompositionControl.invalid && niveauDecompositionControl.touched" style="position: relative;left:200px;">
+              <label  > مستوى التقدم %    </label>
+              <input style="height: 50px;width:300px;" type="number" class="form-control" required [(ngModel)]="decomposition1.niveau_decomposition" id="niveau_decomposition" name="niveau_decomposition" #niveauDecompositionControl="ngModel">
+              <span class="help-block" *ngIf="niveauDecompositionControl.invalid && niveauDecompositionControl.touched">هذه الخانة إجبارية</span>
+    
+            </div>
+              <div  class="form-group col-md-6" [class.has-error]="dateFinActualiseeControl.invalid && dateFinActualiseeControl.touched" style="position: relative;left:220px;width:300px;bottom:5px;">
+                <label >               تاريخ الإنتهاء محيّن   
+              </label>
+              <br>
+              <mat-form-field appearance="fill" [style.width.px]=300>
+              <mat-label>إختيار تاريخ </mat-label>
+              <input  matInput [matDatepicker]="picker5" required [(ngModel)]="decomposition1.date_fin_actualisee" id="date_fin_actualisee" name="date_fin_actualisee" #dateFinActualiseeControl="ngModel">
+              <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+              <mat-datepicker #picker5></mat-datepicker>
+              </mat-form-field>
+              <span class="help-block" *ngIf="dateFinActualiseeControl.invalid && dateFinActualiseeControl.touched">هذه الخانة إجبارية</span>
+      
+              </div>
+      
+      
+             
+          </div>
+              
+              
+               
+              
+           
+              
+              <button style="position: relative;right:250px;top:50px;"type="submit" class="btn btn-primary">إضافة </button>
+            
+            </form>
+            <br>
+              </div>
+              <br>
+            
+                       </mat-expansion-panel>
+
+        </ng-template>
+      </div>
+  
+                 
+            
+           
+                 
+                </div>
+
+</div>
+<div style="position:relative;right:250px;">
+<iframe src="http://localhost:5601/app/kibana#/visualize/edit/81540ed0-362d-11eb-b411-8f1817c90169?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-150y%2Cto%3Anow))" height="600" width="800"></iframe>
+</div>
+</div>
+<ng-template #firstDialog>
+  <div style="background-color:#f0f0f0;padding-bottom:45px;">
+  <button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close> <mat-icon>clear</mat-icon> </button>
+ <br>
+ <br>
+  <div style="text-align:center;font-size:20px;">
+  عليك أولا إختيار مشروع
+</div>
+</div>
+</ng-template>
+
+
+<ng-template #secondDialog>
+  <div style="background-color:#f0f0f0;padding-bottom:45px;">
+  <button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close> <mat-icon>clear</mat-icon> </button>
+ <br>
+ <br>
+  <div style="text-align:center;font-size:20px;">
+    هذه المهمّة ليست ضمن صلاحياتك في هذا المشروع 
+</div>
+</div>
+</ng-template>
+</body>
+</html>

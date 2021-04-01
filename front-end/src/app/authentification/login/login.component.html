@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html dir="rtl" class="no-js">
+<head>
+ 
+</head>
+<body>
+
+  <div class="rectangle1" >
+   
+  </div>
+  <div style="width:400px;position:relative;right:500px;bottom:30px;">
+    <img src="../assets/images/Sans titre.png" width="350" height="80"
+        >
+    </div>
+  <div class="rectangle3">
+    <div *ngIf="usersList==0; else LoggedIn">
+      
+  <br>
+  <br>
+  <br>
+      
+   
+        <div style="float:left;">
+       <img class="image_home" src="../assets/images/Sans titre-320.png" width=400px height=900px  style="border-radius: 20px 0 0 20px ;">
+        </div>
+     
+        <div style="float:right;">
+         <img class="image_home" src="../assets/images/Sans titre-520.png" width=400px height=900px style="border-radius: 0 20px 20px 0 ;">
+          </div>
+        
+     
+     
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     
+     
+      
+     <mat-accordion >
+       
+     
+     
+       <mat-expansion-panel class="mat-elevation-z0" #thisPanel hideToggle>
+         <mat-expansion-panel-header class="disable_ripple" [collapsedHeight]="customCollapsedHeight" [expandedHeight]="customExpandedHeight">
+         <span style="position: relative;right:111px;"> 
+           <img class="image_home" src="../assets/images/admin-login-images-png.png" width=40px style="position: relative;right:33px;">
+           <br>
+           <b> تسجيل الدخول كمستخدم</b>
+         <br>
+        </span>
+          <br>
+         </mat-expansion-panel-header>
+         <div class="container">
+           
+           <br>
+           <br>
+         
+         <form #loginUserForm="ngForm" (ngSubmit)="onSubmitUser()">
+         <div class="form-row">
+     
+           <div >
+             <label  >إسم المستخدم </label>
+             <input style="width: 330px" type="text" class="form-control" required [(ngModel)]="user.username" id="username" name="username" autofocus>
+           </div>
+     
+           <br>
+     
+         <div >
+           <label  >كلمة السر </label>
+           <input style="width: 330px" type="password" class="form-control" required [(ngModel)]="user.password" id="password" name="password">
+         </div>
+         
+         </div>
+         <br>
+         <button type="submit" class="btn btn-primary" [disabled]="loginUserForm.form.invalid" style="position:relative;right:130px;">دخول </button>
+         </form>
+         </div>
+         </mat-expansion-panel>
+       
+     
+     
+       
+     
+     
+     
+     
+     
+     
+     
+     
+     
+       <mat-expansion-panel class="mat-elevation-z0" #thisPanel hideToggle>
+         <mat-expansion-panel-header class="disable_ripple" [collapsedHeight]="customCollapsedHeight" [expandedHeight]="customExpandedHeight">
+          <span style="position: relative;right:111px;">
+           <img class="image_home" src="../assets/images/admin-login-images-png-4.png" width=50px style="position: relative;right:22px;" >
+           <br>
+           <b>تسجيل الدخول كمشرف</b> </span>
+          
+         </mat-expansion-panel-header>
+         <div class="container">
+           
+           <br>
+           <br>
+         
+         <form #loginAdminForm="ngForm" (ngSubmit)="onSubmitAdmin()">
+         <div class="form-row">
+     
+           <div >
+             <label  >إسم المستخدم </label>
+             <input style="width: 330px" type="text" class="form-control" required [(ngModel)]="user.username" id="username" name="username" autofocus>
+           </div>
+     
+           <br>
+     
+         <div >
+           <label  >كلمة السر </label>
+           <input style="width: 330px" type="password" class="form-control" required [(ngModel)]="user.password" id="password" name="password">
+         </div>
+         
+         </div>
+         <br>
+         <button type="submit" class="btn btn-primary"  [disabled]="loginAdminForm.form.invalid" style="position:relative;right:130px;">دخول </button>
+         </form>
+         </div>
+         </mat-expansion-panel>
+     
+     
+     
+    
+     
+     
+     </mat-accordion>
+     
+     
+     
+      
+       
+    </div>
+
+
+
+
+    <ng-template #LoggedIn>
+     you are logged in
+    </ng-template>
+
+
+  </div>
+
+
+ 
+
+    
+
+</body>
+</html>

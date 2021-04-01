@@ -1,0 +1,190 @@
+
+       <mat-expansion-panel class="mat-elevation-z0" #thisPanel hideToggle>
+          <mat-expansion-panel-header class="disable_ripple">
+         
+            <div *ngIf="!thisPanel.expanded"><mat-icon>add</mat-icon></div>
+            <div *ngIf="thisPanel.expanded"><mat-icon>clear</mat-icon></div>
+          </mat-expansion-panel-header>
+    <div class="container">
+      <div class="row" style="text-align: center;">
+        <img src="../assets/images/thebluetitle.png" width="300" height="110">
+        <h1 style="color:white;text-align: center;position:relative;bottom:87px;"> إضافة تمويل أجنبي </h1>
+      </div>
+  <form class="rtl" (ngSubmit)="onSubmit()" >
+
+<div style="display:inline-block;width:1145px;">
+    <div class="form-group col-md-6" [class.has-error]="libelleControl.invalid && libelleControl.touched">
+      <label >التسمية </label>
+      <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="financementEtranger.libelle" id="libelle" name="libelle" #libelleControl="ngModel">
+      <span class="help-block" *ngIf="libelleControl.invalid && libelleControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+
+  <div class="form-group col-md-6" [class.has-error]="codeControl.invalid && codeControl.touched">
+    <label >الرمز  </label>
+    <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="financementEtranger.code" id="code" name="code" #codeControl="ngModel">
+    <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+</div>
+ 
+
+
+<div style="display:inline-block;width:1145px;">
+  <div class="form-group col-md-6" [class.has-error]="deviseControl.invalid && deviseControl.touched">
+    <label >العملة  </label>
+    <select class="form-control" [(ngModel)]="financementEtranger.devise" id="devise" name="devise" #deviseControl="ngModel" style="height: 50px">
+      <option value='' disabled selected>devise</option>
+      <option *ngFor="let deviseNom of devisesKeys" [value]="devise[deviseNom]"> {{devise[deviseNom]}} </option>
+
+    </select>
+ <span class="help-block" *ngIf="deviseControl.invalid && deviseControl.touched">هذه الخانة إجبارية</span>
+    
+</div>
+
+<div class="form-group col-md-6" [class.has-error]="montantDtControl.invalid && montantDtControl.touched">
+  <label >المبلغ بالدينار التونسي  </label>
+  <input style="height: 50px;" type="number" class="form-control" required [(ngModel)]="financementEtranger.montant_dt" id="montant_dt" name="montant_dt" #montantDtControl="ngModel">
+  <span class="help-block" *ngIf="montantDtControl.invalid && montantDtControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+
+</div>
+  
+
+  
+
+<div style="display:inline-block;width:1145px;">
+  <div class="form-group col-md-6" [class.has-error]="dateActualisationControl.invalid && dateActualisationControl.touched">
+    <label >         تاريخ التحيين    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </label>
+  <mat-form-field appearance="fill" [style.width.px]=540>
+  <mat-label>إختيار تاريخ </mat-label>
+  <input matInput [matDatepicker]="picker1" required [(ngModel)]="financementEtranger.date_actualisation" id="date_actualisation" name="date_actualisation" #dateActualisationControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <span class="help-block" *ngIf="dateActualisationControl.invalid && dateActualisationControl.touched">هذه الخانة إجبارية</span>
+  
+</div>
+
+
+  <div class="form-group col-md-6" [class.has-error]="montantActualiseControl.invalid && montantActualiseControl.touched">
+    <label >المبلغ بالعملة محيّن  </label>
+    <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="financementEtranger.montant_actualise" id="montant_actualise" name="montant_actualise" #montantActualiseControl="ngModel">
+    <span class="help-block" *ngIf="montantActualiseControl.invalid && montantActualiseControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+</div>
+ 
+
+
+
+<div style="display:inline-block;width:1145px;">
+  <div class="form-group col-md-6" [class.has-error]="financeurControl.invalid && financeurControl.touched">
+    <label >الممول  </label>
+    <select class="form-control" [(ngModel)]="financementEtranger.financeur" id="financeur" name="financeur" #financeurControl="ngModel" style="height: 50px">
+      <option value='' disabled selected>lieu</option>
+      <option *ngFor="let financeurNom of financeursKeys" [value]="financeur[financeurNom]"> {{financeur[financeurNom]}} </option>
+
+    </select>
+    <span class="help-block" *ngIf="financeurControl.invalid && financeurControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+
+  <div class="form-group col-md-6" [class.has-error]="paysFinancementControl.invalid && paysFinancementControl.touched" >
+    <label >بلد التمويل  </label>
+    <select class="form-control" [(ngModel)]="financementEtranger.pays_financement" id="pays_financement" name="pays_financement" #paysFinancementControl="ngModel" style="height: 50px">
+      <option value='' disabled selected>lieu</option>
+      <option *ngFor="let paysNom of paysKeys" [value]="pays[paysNom]"> {{pays[paysNom]}} </option>
+
+    </select>
+    <span class="help-block" *ngIf="paysFinancementControl.invalid && paysFinancementControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+</div>
+
+<div style="display:inline-block;width:1145px;">
+
+  <div class="form-group col-md-6" [class.has-error]="dateDebutControl.invalid && dateDebutControl.touched" >
+    <label >      تاريخ بداية التمويل &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         
+  </label>
+  <mat-form-field appearance="fill" [style.width.px]=540>
+  <mat-label>إختيار تاريخ </mat-label>
+  <input matInput [matDatepicker]="picker4" required [(ngModel)]="financementEtranger.date_debut" id="date_debut" name="date_debut" #dateDebutControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+  <mat-datepicker #picker4></mat-datepicker>
+  </mat-form-field>
+  
+  <span class="help-block" *ngIf="dateDebutControl.invalid && dateDebutControl.touched">هذه الخانة إجبارية</span>
+  </div>
+
+
+  <div class="form-group col-md-6" [class.has-error]="dateSignatureControl.invalid && dateSignatureControl.touched">
+    <label >    تاريخ الامضاء   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  </label>
+  <mat-form-field appearance="fill" [style.width.px]=530>
+  <mat-label>إختيار تاريخ </mat-label>
+  <input matInput [matDatepicker]="picker2" required [(ngModel)]="financementEtranger.date_signature" id="date_signature" name="date_signature" #dateSignatureControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+  <span class="help-block" *ngIf="dateSignatureControl.invalid && dateSignatureControl.touched">هذه الخانة إجبارية</span>
+  
+</div>
+
+
+</div>
+
+
+<div style="display:inline-block;width:1145px;">
+  <div class="form-group col-md-6" [class.has-error]="dateClotureControl.invalid && dateClotureControl.touched">
+    <label>      تاريخ نهاية التمويل  &nbsp;&nbsp; &nbsp;       
+  </label>
+  <mat-form-field appearance="fill" [style.width.px]=530>
+  <mat-label>إختيار تاريخ </mat-label>
+  <input matInput [matDatepicker]="picker3" required [(ngModel)]="financementEtranger.date_cloture" id="date_cloture" name="date_cloture" #dateClotureControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+  <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field>
+  <span class="help-block" *ngIf="dateClotureControl.invalid && dateClotureControl.touched">هذه الخانة إجبارية</span>
+  
+</div>
+
+
+
+
+<div class="form-group col-md-6" [class.has-error]="dateDelaiControl.invalid && dateDelaiControl.touched" >
+  <label >    تاريخ آخر أجل  للتمويل &nbsp;&nbsp;&nbsp;&nbsp;          
+</label>
+<mat-form-field appearance="fill" [style.width.px]=540>
+<mat-label>إختيار تاريخ </mat-label>
+<input matInput [matDatepicker]="picker5" required [(ngModel)]="financementEtranger.date_delai" id="date_delai" name="date_delai" #dateDelaiControl="ngModel">
+<mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+<mat-datepicker #picker5></mat-datepicker>
+</mat-form-field>
+<span class="help-block" *ngIf="dateDelaiControl.invalid && dateDelaiControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+</div>
+
+
+
+<button style="position:relative;top:30px;right:230px;" type="submit" class="btn btn-primary">إضافة </button>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</form>
+</div>
+
+</mat-expansion-panel>
+
+
+
+
+
+
+  

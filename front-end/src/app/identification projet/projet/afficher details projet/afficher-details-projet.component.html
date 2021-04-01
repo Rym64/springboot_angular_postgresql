@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html dir="rtl" class="no-js">
+
+<head>
+
+</head>
+
+<body>
+
+
+  <div *ngFor="let user of usersList" class="rectangle1" >
+    <div *ngIf="user.role=='مُشْرِف'; else simpleUser">
+    <div style="width:320px;position:relative;top:20px;">
+      <button style="background-color: Transparent;border:none;outline:none;" (click)="afficherProjets()"><img src="../assets/images/picture19.png" width="210" height="50"
+        style="margin-right:80px;"></button>
+    </div>
+
+    <div style="position:relative;right:550px;bottom:93px;display:inline-block;">
+      <button (click)="afficherUtilisateurs()" style="background-color:transparent;border:none;outline:none;"><img src="../assets/images/square-icon.png" width="90" height="70"
+       style="border-radius: 10%"   ></button>
+      </div>
+
+      <div style="position:relative;right:650px;bottom:93px;display:inline-block;">
+        <button (click)="afficherUserProfilProjet()" style="background-color:transparent;border:none;outline:none;"><img src="../assets/images/secondSquare.jpg" width="90" height="70"
+         style="border-radius: 10%"   ></button>
+        </div>
+    
+      <div class="dropdown1"
+        style="position: relative;right:780px;bottom:52px;height:80px;">
+
+        <img class="card-img-top img-responsive" src="{{this.webService.serverUrl+'Imgarticles/'+user.username}}"
+        style="height :55px;width:55px; border-radius: 50%;position:relative;top:15px;right:100px;" alt="">
+        
+        <button style="position: relative;bottom:40px;right:20px;" class="dropbtn1">
+          <mat-icon style="position: relative;top:7px;">arrow_drop_down</mat-icon> مرحبا {{user.username}}
+        </button>
+     
+        <div class="dropdown-content1 dropdown-menu-center1 " style="z-index: 2;top:82px">
+          <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="updateUserCurrent(user)"> تعديل بيانات الحساب  </button>
+          <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="loggedOut()"> خروج </button>
+        </div>
+      </div>
+   
+    </div>
+
+
+  <ng-template #simpleUser>
+    <div style="width:320px;position:relative;top:20px;">
+      <button style="background-color: Transparent;border:none;outline:none;" (click)="afficherProjets()"><img src="../assets/images/picture19.png" width="210" height="50"
+        style="margin-right:80px;"></button>
+      </div>
+  
+  
+      
+        <div *ngFor="let user of usersList" class="dropdown1"
+          style="position: relative;right:980px;bottom:52px;height:80px;">
+  
+          <img class="card-img-top img-responsive" src="{{this.webService.serverUrl+'Imgarticles/'+user.username}}"
+          style="height :55px;width:55px; border-radius: 50%;position:relative;top:15px;right:100px;" alt="">
+          
+          <button style="position: relative;bottom:40px;right:20px;" class="dropbtn1">
+            <mat-icon style="position: relative;top:7px;">arrow_drop_down</mat-icon> مرحبا {{user.username}}
+          </button>
+       
+          <div class="dropdown-content1 dropdown-menu-center1 " style="z-index: 2;top:82px">
+            <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="updateUserCurrent(user)"> تعديل بيانات الحساب  </button>
+            <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="loggedOut()"> خروج </button>
+          </div>
+        </div>
+  </ng-template>
+
+  </div>
+
+  <div style="width:400px;position:relative;right:500px;bottom:30px;">
+    <img src="../assets/images/Sans titre.png" width="350" height="80"
+        >
+    </div>
+
+
+
+  <div class="rectangle3" style="height : 2000px">
+    <div style="background-image: url('../assets/images/shutterstock_1247187910-1280x720.jpeg')" class="rectangle2">
+    </div>
+    <div class="rectangle4">
+
+     
+
+
+
+      <ul style="list-style: none;">
+
+
+
+        <li style="float:right">
+          <div class="dropdown1">
+            <button class="dropbtn1"> تحديد المشروع
+            </button>
+            <div class="dropdown-content1 dropdown-menu-center1">
+             
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherFinancements(firstDialog,secondDialog)">مصادر التمويل </button>
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherDecompositions(firstDialog,secondDialog)"> تقسيم المشروع </button>
+
+            </div>
+          </div>
+        </li>
+
+
+        <li style="float:right;position:relative;right:150px;">
+          <div class="dropdown1">
+            <button class="dropbtn1"> متابعة المشروع
+            </button>
+            <div class="dropdown-content1 dropdown-menu-center1">
+             
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherAppelsOffre(firstDialog,secondDialog)"> متابعة سوق المشروع  </button>
+
+           
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherAvancementMarche(firstDialog,secondDialog)">  المتابعة المادية للمشروع </button>
+
+            </div>
+          </div>
+        </li>
+
+
+
+        <li style="float:right;position:relative;right:300px;">
+          <div class="dropdown1">
+            <button class="dropbtn1"> تقييم المشروع
+            </button>
+            <div class="dropdown-content1 dropdown-menu-center1">
+              <button class="myButton" style="border:none;padding-top:15px;padding-bottom:15px;width:200px;background-color:#f6f6f6;" (click)="afficherObjectifs(firstDialog,secondDialog)">   الأهداف والمؤشرات   </button>
+
+             
+            </div>
+          </div>
+        </li>
+
+
+     
+
+
+
+
+
+
+      </ul>
+
+    </div>
+    <br>
+    <br>
+
+
+    <div class="container">
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <h1 style="color:#c69c6d;text-align: center;">قائمة المشاريع </h1>
+      </div>
+      <br>
+      <a routerLink="/afficherProjets" (click)="downloadPdf()">
+        <p style="background-color:#d12929;color:white;position: relative;right:100px;top:55px; border: 1px solid white;
+    border-radius: 5px;font-size: 9px;line-height:1;width: 50px;padding:5px;">تحميل pdf </p> <img
+          src="../assets/images/pdficon.png" width="50px" height="47px"
+          style="position: relative;right:100px;top:45px;">
+      </a>
+
+
+      <div style="position:relative;right:800px">
+        <input class="form-control" style="width: 200px;" type="text" [(ngModel)]="recherche">
+        <button class="btn btn-primary" (click)="rechercherProjet(recherche)"
+          style="border:none;background-color:#c69c6d;height:35px;position: relative;right:210px;bottom:35px;"><span
+            style="position: relative;bottom:8px;">بحث</span> &nbsp; <mat-icon
+            style="margin-top:0;padding-top:0;height:7px;width:15px;">search</mat-icon></button>
+      </div>
+
+      <br>
+
+
+      <table style="margin-right:auto;margin-left:auto;border: 2px solid #cccccc" class="table-table-hover1">
+        <thead>
+          <tr>
+
+            <th> الرمز </th>
+
+            <th> التسمية </th>
+            <th>تاريخ الإنطلاق </th>
+            <th>تاريخ الإنطلاق محيّن </th>
+            
+            <th>تاريخ الإنتهاء  </th>
+            <th>تاريخ الإنتهاء محيّن</th>
+            <th> الكلفة التقديرية </th>
+            <th> الكلفة التقديرية محيّنة</th>
+            <th>القطاع</th>
+            <th>مكان التنفيذ  </th>
+            <th>نسبة التقدم </th>
+            <th>الحالة</th>
+            <th> التفاصيل </th>
+            <th> تعديل </th>
+            <th> حذف </th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+
+
+            <td><a routerLink="" (click)="selectProjet(projet)">{{projet.code}}</a></td>
+
+            <td>{{projet.libelle}}</td>
+            <td>{{projet.date_debut}}</td>
+            <td>{{projet.date_debut_actualisee}}</td>
+            <td>{{date_fin}}</td>
+            <td>{{date_fin_actualisee}}</td>
+
+            <td>{{projet.cout}}</td>
+            <td>{{projet.cout_actualise}}</td>
+            <td>{{projet.secteur.type_secteur}}</td>
+            <td>{{projet.lieu_projet}}</td>
+            <td>{{projet.stade}}</td>
+            <td>{{projet.flag}}</td>
+            <td><a routerLink="" (click)="afficherDetails(projet)">
+                <mat-icon style="color:green">assignment
+                </mat-icon>
+              </a></td>
+
+            <td>
+              <span><button style=" border: none;background-color: white;" (click)="updateProjet(projet)"
+                  class="btn btn-primary mb-2">
+                  <mat-icon style="color:blue">create</mat-icon>
+                </button> </span> </td>
+            <td><span><button style=" border: none;background-color: white;" (click)="deleteProjet(projet)"
+                  class="btn btn-primary mb-2">
+                  <mat-icon style="color:red">delete_outline</mat-icon>
+                </button></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  
+
+  </div>
+  <ng-template #firstDialog>
+    <div style="background-color:#f0f0f0;padding-bottom:45px;">
+    <button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close> <mat-icon>clear</mat-icon> </button>
+   <br>
+   <br>
+    <div style="text-align:center;font-size:20px;">
+    عليك أولا إختيار مشروع
+  </div>
+</div>
+  </ng-template>
+
+
+  <ng-template #secondDialog>
+    <div style="background-color:#f0f0f0;padding-bottom:45px;">
+    <button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close> <mat-icon>clear</mat-icon> </button>
+   <br>
+   <br>
+    <div style="text-align:center;font-size:20px;">
+      هذه المهمّة ليست ضمن صلاحياتك في هذا المشروع 
+  </div>
+</div>
+  </ng-template>
+</body>
+
+</html>

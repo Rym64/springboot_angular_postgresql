@@ -1,0 +1,10 @@
+/*Font Color*/
+a, .page-head, .service-icon i, .social-icons ul li a, .copyright span{color:#03ACDC;}
+
+
+/*Background Color*/
+#top-bar, .btn.orange, .icon-head i, .skillbar-bar, .owl-theme .owl-controls .owl-buttons div, .white-wrap .text-holder i, ul#filters li a:hover, ul#filters li.active a, a#load-more:hover, footer, #back-top a:hover{background-color:#03ACDC;}
+
+
+ul.nav li a.selected, ul.nav li a:hover{border-bottom:4px solid #03ACDC;}
+

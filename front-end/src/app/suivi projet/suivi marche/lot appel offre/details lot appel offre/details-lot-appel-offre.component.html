@@ -1,0 +1,17 @@
+<button style="border:none;outline:none;background-color: white;position: relative;left:25px;bottom:20px" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+<br>
+<a>الرمز: </a>
+ {{lotAppelOffre.code}}
+<br>
+<a>التسمية: </a>
+ {{lotAppelOffre.libelle}}
+<br>
+<a>المبلغ: </a>
+ {{lotAppelOffre.montant}}
+<br>
+<a>تاريخ الفاتورة</a>  : {{lotAppelOffre.dateLotAppelOffre | date : 'yyyy-MM-dd'}}
+<br>
+<a>المبلغ المدفوع</a>  : {{lotAppelOffre.montant_paye}}
+<br>
+<a>تاريخ الدفع : </a>
+ {{lotAppelOffre.date_payement | date : 'yyyy-MM-dd'}}

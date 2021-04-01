@@ -1,0 +1,193 @@
+/*
+ * jQuery FlexSlider v2.2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+
+/* Browser Resets
+*********************************/
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* Icon Fonts
+*********************************/
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden; position:relative;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { margin: 0;position: relative; zoom: 1;}
+#product-slider.flexslider{background:url(../images/loader.GIF) no-repeat center center; border:none; box-shadow:none; min-height:260px;}
+#product-slider.flexslider .slides{background:#F6EEE6;}
+.flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+.loading .flex-viewport { max-height: 300px; }
+.flexslider .slides { zoom: 1; }
+.carousel li { margin-right: 5px; }
+
+/* Direction Nav */
+.flex-direction-nav {*height: 0;}
+.flex-direction-nav a  { text-decoration:none; display: block; width: 30px; height: 30px; margin: -15px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 1; cursor: pointer; -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; background:#303030;}
+.flex-direction-nav .flex-prev { left: 0; text-align: center;}
+.flex-direction-nav .flex-next { right: 0; text-align: center; }
+.flexslider:hover .flex-prev { opacity: 1; left: 0; }
+.flexslider:hover .flex-next { opacity: 1; right: 0; }
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover { opacity: 1; background:#e74c3c; }
+.flex-direction-nav .flex-disabled { opacity: 0!important; filter:alpha(opacity=0); cursor: default; }
+.flex-direction-nav a:before  { font-family: "FontAwesome"; font-size: 16px; display: inline-block; content: ''; font-weight:700; }
+.flex-direction-nav a.flex-next:before  { content: '\f105'; color:#FFF; position:relative; top:3px; }
+.flex-direction-nav a.flex-prev:before  { content: '\f104'; color:#FFF; position:relative; top:3px; }
+
+/* Pause/Play */
+.flex-pauseplay a { display: block; width: 20px; height: 20px; position: absolute; bottom: 5px; left: 10px; opacity: 0.8; z-index: 10; overflow: hidden; cursor: pointer; color: #000; }
+.flex-pauseplay a:before  { font-family: "FontAwesome"; font-size: 20px; display: inline-block; content: '\f004'; }
+.flex-pauseplay a:hover  { opacity: 1; }
+.flex-pauseplay a.flex-play:before { content: '\f003'; }
+
+/* Control Nav */
+.flex-control-nav {width: 100%; position: absolute; bottom: -50px; text-align: center;}
+#product-slider .flex-control-nav{bottom:-57px;}
+.flex-control-nav li {margin: 0 3px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-paging li a {width: 5px; height: 5px; display: block; background: #00923f; cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px; border:3px solid #00923f;}
+#product-slider .flex-control-paging li a{
+	background:#cec8c2;
+	border:3px solid #cec8c2;
+}
+.flex-control-paging li a:hover, #product-slider .flex-control-paging li a:hover { background: #FFF; }
+.flex-control-paging li a.flex-active, #product-slider .flex-control-paging li a.flex-active { background: #FFF;  cursor: default; }
+
+.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
+.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
+.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
+.flex-control-thumbs img:hover {opacity: 1;}
+.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+
+.flex-caption {
+	margin: 0;
+	width:100%;
+	bottom:110px;
+	color: #fff;
+	text-align:center;
+	font-size: 12px;
+	text-transform:uppercase;
+	font-weight:600;
+	line-height: 18px;
+	zoom: 1;
+	left:0;	
+	position:absolute;
+}
+.flexslider .slides .container{
+	position:relative;
+}
+.flex-caption div {
+	color:#f6eee6;
+	font-size:36px;	
+	background: rgba(0,0,0,.5);
+	padding:30px 20px;	
+	display:inline-block;
+	margin:0;
+	min-width:250px;
+	border-radius:4px;
+}
+.flex-caption h2 {
+	color:#fdc700;
+	font-weight:600;
+	text-transform:uppercase;
+	line-height:inherit;
+	font-size:24px;
+}
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev { opacity: 1; left: 10px;}
+  .flex-direction-nav .flex-next { opacity: 1; right: 10px;}
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.flex-caption{display:none;}	
+	.flex-wrap{padding:40px 0;}
+}
+@media only screen and (max-width: 479px) {
+	.flex-caption{display:none;}	
+	.flex-wrap{padding:40px 0;}
+}
+
+#home-slider{
+	margin:50px 0 10px 0;
+	
+}
+#home-slider .flex-caption{
+	bottom:150px;
+}
+#home-slider .flex-caption.first, #home-slider .flex-caption.last{
+	left:50px;
+}
+#home-slider .flex-caption {
+	margin: 0;
+	width:auto;
+	bottom:50px;
+	color: #fff;
+	font-size: 12px;
+	line-height: 18px;
+	zoom: 1;
+	left:0;
+	position:absolute;
+}
+#home-slider .flexslider .slides .container{
+	position:relative;
+}
+#home-slider .flex-caption div {
+	color:#999;
+	font-size:14px;
+	text-transform:capitalize;
+	background: rgba(0,0,0,.7);
+	padding:20px;
+	font-weight:400;
+	display:inline-block;
+	margin:0;
+	text-align:left;
+}
+#home-slider .flex-caption h2 {
+	color:#FFF;
+	font-weight:600;
+	text-transform:uppercase;
+	line-height:inherit;
+	font-size:20px;
+}
+#home-slider .flex_subtitle h3{
+	color:#FFF;
+	font-size:20px;
+	margin:0;
+	text-transform:capitalize;
+	background: rgba(67,66,80,.8);
+	padding:20px;
+}
+#home-slider .flex-caption .slide-txt {
+	color:#FFF;
+	font-size:14px;
+	background: rgba(0,0,0,.8);
+	padding:10px;
+}

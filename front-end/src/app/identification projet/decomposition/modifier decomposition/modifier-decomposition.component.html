@@ -1,0 +1,108 @@
+<button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+  
+<div style="width:1000px;" class="container">
+  <h1 style="color:#c69c6d;position:relative;right:410px;width:500px;">تعديل تقسيمات   </h1>
+  <br>
+  <br>
+  <form class="rtl" (ngSubmit)="processForm()">
+  
+    <div class="form-group col-md-6">
+      <label  for="inputPassword4">التسمية </label>
+      <input  type="text" class="form-control" required [(ngModel)]="decomposition1.libelle" id="libelle" name="libelle">
+    </div>
+  <div class="form-group col-md-6">
+    <label for="inputEmail4">الرمز  </label>
+    <input  type="text" class="form-control" required [(ngModel)]="decomposition1.code" id="code" name="code">
+  </div>
+  
+  
+ 
+  <div class="form-group col-md-6">
+    <label  for="inputPassword4">المبلغ  </label>
+    <input  type="number" class="form-control" required [(ngModel)]="decomposition1.montant" id="montant" name="montant">
+  </div>
+  
+  
+  
+  
+ 
+
+  <div style="position: relative;top:25px;" class="form-group col-md-6">
+    <label for="inputEmail4">              تاريخ الإنطلاق   
+  </label>
+  <mat-form-field appearance="fill">
+  <mat-label>إختيار تاريخ </mat-label>
+  <input  matInput [matDatepicker]="picker1" required [(ngModel)]="decomposition1.date_debut" id="date_debut" name="date_debut">
+  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  </div>
+  
+
+
+  
+ 
+
+
+  <div style="position: relative;top:25px;" class="form-group col-md-6">
+    <label for="inputEmail4">               تاريخ الإنتهاء   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </label>
+  <mat-form-field appearance="fill">
+  <mat-label>إختيار تاريخ </mat-label>
+  <input  matInput [matDatepicker]="picker3" required [(ngModel)]="decomposition1.date_fin" id="date_fin" name="date_fin">
+  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+  <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field>
+  </div>
+
+  
+
+  <div style="position: relative;top:25px;" class="form-group col-md-6">
+    <label for="inputEmail4">               تاريخ الإنطلاق<br> محيّن    
+  </label>
+  <mat-form-field appearance="fill">
+  <mat-label>إختيار تاريخ </mat-label>
+  <input  matInput [matDatepicker]="picker4" required [(ngModel)]="decomposition1.date_debut_actualisee" id="date_debut_actualisee" name="date_debut_actualisee">
+  <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+  <mat-datepicker #picker4></mat-datepicker>
+  </mat-form-field>
+  </div>
+
+    
+  
+  <div  class="form-group col-md-6">
+    <label  for="inputPassword4"> مستوى التقدم %    </label>
+    <input type="number" class="form-control" required [(ngModel)]="decomposition1.niveau_decomposition" id="niveau_decomposition" name="niveau_decomposition">
+  </div>
+   
+
+    <div style="position: relative;top:25px;" class="form-group col-md-6">
+      <label for="inputEmail4">               تاريخ الإنتهاء<br> محيّن   &nbsp;&nbsp;&nbsp;&nbsp;
+    </label>
+    <mat-form-field appearance="fill">
+    <mat-label>إختيار تاريخ </mat-label>
+    <input  matInput [matDatepicker]="picker5" required [(ngModel)]="decomposition1.date_fin_actualisee" id="date_fin_actualisee" name="date_fin_actualisee">
+    <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+    <mat-datepicker #picker5></mat-datepicker>
+    </mat-form-field>
+    </div>
+    
+  
+   
+    
+    
+      <label for="inputPassword4"> النوع  </label>
+      <input style="height: 50px;width:300px;" type="text" class="form-control" required [(ngModel)]="decomposition1.type_decomposition" id="type_decomposition" name="type_decomposition">
+    
+  
+    
+  
+  
+  <br>
+  
+  <button style="position: relative;right:16px;"type="submit" class="btn btn-primary">تعديل  </button>
+<br>
+<br>
+<br>  
+</form>
+  </div>

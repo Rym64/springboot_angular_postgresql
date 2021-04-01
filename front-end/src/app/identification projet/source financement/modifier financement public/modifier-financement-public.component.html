@@ -1,0 +1,85 @@
+<div style="width:1000px;background-color: #f0f0f0;" class="container">
+  <form class="rtl" (ngSubmit)="processForm()" >
+  
+      <div class="row" style="text-align: center;">
+        <img src="../assets/images/thegreentitle.png" width="300" height="110">
+        <h1 style="color:white;text-align: center;position:relative;bottom:87px;">تعديل تمويل حكومي </h1>
+      </div>
+  <br>
+  <br>
+   
+  <div style="display:inline-block;width:970px;" >
+    <div class="form-group col-md-6"  [class.has-error]="libelleFinancementPublicControl.invalid && libelleFinancementPublicControl.touched">
+      <label >التسمية </label>
+      <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="projet.libelle_financement_public" id="libelle_financement_public" name="libelle_financement_public" #libelleFinancementPublicControl="ngModel">
+      <span class="help-block" *ngIf="libelleFinancementPublicControl.invalid && libelleFinancementPublicControl.touched">هذه الخانة إجبارية</span>
+    </div>
+  
+  
+    <div class="form-group col-md-6" [class.has-error]="codeFinancementPublicControl.invalid && codeFinancementPublicControl.touched">
+      <label >الرمز  </label>
+      <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="projet.code_financement_public" id="code_financement_public" name="code_financement_public" #codeFinancementPublicControl="ngModel">
+      <span class="help-block" *ngIf="codeFinancementPublicControl.invalid && codeFinancementPublicControl.touched">هذه الخانة إجبارية</span>
+  
+    </div>
+  </div>
+  
+    
+  
+   
+  <div style="display:inline-block;width:970px;">
+   
+   
+    <div class="form-group col-md-6" [class.has-error]="dateFinancementPublicControl.invalid && dateFinancementPublicControl.touched">
+      <label >                تاريخ التمويل 
+    </label>
+    <br>
+    <mat-form-field appearance="fill" [style.width.px]=453>
+    <mat-label>إختيار تاريخ </mat-label>
+    <input matInput [matDatepicker]="picker4" required [(ngModel)]="projet.date_financement_public" id="date_financement_public" name="date_financement_public" #dateFinancementPublicControl="ngModel">
+    <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+    <mat-datepicker #picker4></mat-datepicker>
+    </mat-form-field>
+    <span class="help-block" *ngIf="dateFinancementPublicControl.invalid && dateFinancementPublicControl.touched">هذه الخانة إجبارية</span>
+  
+    </div>
+    <div class="form-group col-md-6" [class.has-error]="montantFinancementPublicControl.invalid && montantFinancementPublicControl.touched">
+      <label >المبلغ  </label>
+      <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="projet.montant_financement_public" id="montant_financement_public" name="montant_financement_public" #montantFinancementPublicControl="ngModel">
+      <span class="help-block" *ngIf="montantFinancementPublicControl.invalid && montantFinancementPublicControl.touched">هذه الخانة إجبارية</span>
+  
+    </div>
+  </div>
+   
+  <div style="display:inline-block;width:970px;">
+    <div class="form-group col-md-6" [class.has-error]="dateActualisationFinancementPublicControl.invalid && dateActualisationFinancementPublicControl.touched">
+      <label >                تاريخ التحيين 
+    </label>
+    <br>
+    <mat-form-field appearance="fill" [style.width.px]=453>
+    <mat-label>إختيار تاريخ </mat-label>
+    <input matInput [matDatepicker]="picker3" required [(ngModel)]="projet.date_actualisation_financement_public" id="date_actualisation_financement_public" name="date_actualisation_financement_public" #dateActualisationFinancementPublicControl="ngModel">
+    <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+    <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+    <span class="help-block" *ngIf="dateActualisationFinancementPublicControl.invalid && dateActualisationFinancementPublicControl.touched">هذه الخانة إجبارية</span>
+  
+    </div>
+  
+    <div class="form-group col-md-6" [class.has-error]="montantFinancementPublicActualiseControl.invalid && montantFinancementPublicActualiseControl.touched">
+      <label > المبلغ محيّن  </label>
+      <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="projet.montant_financement_public_actualise" id="montant_financement_public_actualise" name="montant_financement_public_actualise" #montantFinancementPublicActualiseControl="ngModel">
+      <span class="help-block" *ngIf="montantFinancementPublicActualiseControl.invalid && montantFinancementPublicActualiseControl.touched">هذه الخانة إجبارية</span>
+  
+    </div>
+  </div>
+  
+  <br>
+  
+  <button style="position:relative;right:460px;" type="submit" class="btn btn-primary">تعديل </button>
+ 
+  
+  </form>
+  </div>
+  
+  

@@ -1,0 +1,181 @@
+<div style="background-color: #f0f0f0;">
+<button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+  
+<div style="width:1000px;background-color: #f0f0f0;" class="container">
+  
+  <div class="row" style="text-align: center;height:70px;position:relative;bottom:40px;right:400px;display:inline-block;">
+    <img src="../assets/images/thegreentitle.png" width="200" height="60">
+    <h1 style="color:white;text-align: center;position:relative;bottom:57px;font-size:20px;"> تعديل مشروع </h1>
+  </div>
+
+
+<form style="position:relative;bottom:55px;background-color: #f0f0f0;" (ngSubmit)="processForm()">
+  <div style="display:inline-block;width:970px;position:relative;bottom:25px;">
+
+    <div class="form-group col-md-6" [class.has-error]="libelleControl.invalid && libelleControl.touched">
+      <label class="control-label">التسمية</label>
+      <input style="height:45px;" type="text" class="form-control" required [(ngModel)]="projet.libelle" id="libelle" name="libelle" #libelleControl="ngModel">
+    <span class="help-block" *ngIf="libelleControl.invalid && libelleControl.touched">هذه الخانة إجبارية</span>
+    </div>
+
+
+    <div class="form-group col-md-6" [class.has-error]="codeControl.invalid && codeControl.touched">
+      <label  class="control-label">الرمز</label>
+      <input style="height:45px;" type="text" class="form-control" required [(ngModel)]="projet.code" id="code" name="code" #codeControl="ngModel">
+
+      <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+  
+  </div>
+
+
+
+  <div class="form-group" style="position:relative;bottom:45px;" [class.has-error]="descriptionControl.invalid && descriptionControl.touched">
+    <label style="position:relative;right:15px" >الوصف</label>
+    <input style="position:relative;right:15px;width:940px;height:45px;" type="text" class="form-control" required [(ngModel)]="projet.description" id="description" name="description" #descriptionControl="ngModel">
+    <span class="help-block" *ngIf="descriptionControl.invalid && descriptionControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+  
+  
+     <div style="display:inline-block;width:970px;position:relative;bottom:55px;">
+      <div class="form-group col-md-6" [class.has-error]="dateDebutActualiseeControl.invalid && dateDebutActualiseeControl.touched">
+        <label >                 تاريخ الإنطلاق محيّن
+      </label>
+      <mat-form-field appearance="fill" [style.width.px]=453>
+      <mat-label>إختيار تاريخ</mat-label>
+      <input matInput [matDatepicker]="picker" required [(ngModel)]="projet.date_debut_actualisee" id="date_debut_actualisee" name="date_debut_actualisee"  #dateDebutActualiseeControl="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>        
+      <span class="help-block" *ngIf="dateDebutActualiseeControl.invalid && dateDebutActualiseeControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+
+      <div class="form-group col-md-6" [class.has-error]="dateDebutControl.invalid && dateDebutControl.touched">
+        <label >                تاريخ الإنطلاق
+      </label>
+      <mat-form-field appearance="fill" [style.width.px]=443>
+      <mat-label>إختيار تاريخ</mat-label>
+      <input matInput [matDatepicker]="picker1" required [(ngModel)]="projet.date_debut" id="date_debut" name="date_debut" #dateDebutControl="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>      
+      <span class="help-block" *ngIf="dateDebutControl.invalid && dateDebutControl.touched">هذه الخانة إجبارية</span>
+    </div>
+  </div>
+
+    
+     <div style="display:inline-block;width:970px;position:relative;bottom:80px;">
+      <div class="form-group col-md-6" [class.has-error]="dateFinActualiseeControl.invalid && dateFinActualiseeControl.touched" >
+        <label >                تاريخ الإنتهاء محيّن
+      </label>
+      <mat-form-field appearance="fill" [style.width.px]=453>
+      <mat-label>إختيار تاريخ</mat-label>
+      <input matInput [matDatepicker]="picker2" required [(ngModel)]="projet.date_fin_actualisee" id="date_fin_actualisee" name="date_fin_actualisee"  #dateFinActualiseeControl="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>        
+      <span class="help-block" *ngIf="dateFinActualiseeControl.invalid && dateFinActualiseeControl.touched">هذه الخانة إجبارية</span>
+    </div>
+
+      <div class="form-group col-md-6" [class.has-error]="dateFinControl.invalid && dateFinControl.touched">
+        <label >                تاريخ الإنتهاء
+      </label>
+      <mat-form-field appearance="fill" [style.width.px]=443>
+      <mat-label>إختيار تاريخ </mat-label>
+      <input matInput [matDatepicker]="picker3" required [(ngModel)]="projet.date_fin" id="date_fin" name="date_fin" #dateFinControl="ngModel">
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      <span class="help-block" *ngIf="dateFinControl.invalid && dateFinControl.touched">هذه الخانة إجبارية</span>
+
+      </div>
+    </div>
+
+
+
+
+
+    <div style="display:inline-block;width:970px;position:relative;bottom:105px;">
+    
+      <div class="form-group col-md-6" [class.has-error]="coutActualiseControl.invalid && coutActualiseControl.touched">
+        <label >                الكلفة التقديرية محيّنة
+      </label>
+        <input style="height:45px;" type="number" class="form-control" required [(ngModel)]="projet.cout_actualise" id="cout_actualise" name="cout_actualise"  #coutActualiseControl="ngModel">
+        <span class="help-block" *ngIf="coutActualiseControl.invalid && coutActualiseControl.touched">هذه الخانة إجبارية</span>
+
+      </div>
+
+      <div class="form-group col-md-6" [class.has-error]="coutControl.invalid && coutControl.touched">
+        <label >                الكلفة التقديرية
+      </label>
+        
+      <input style="height:45px;" type="number" class="form-control" required [(ngModel)]="projet.cout" id="cout" name="cout" #coutControl="ngModel">
+      <span class="help-block" *ngIf="coutControl.invalid && coutControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+    </div>
+
+    
+    <div style="display:inline-block;width:970px;position:relative;bottom:115px;">
+     
+      <div class="form-group col-md-6" [class.has-error]="stadeControl.invalid && stadeControl.touched">
+        <label >                مستوى التقدم
+      </label>
+        <input style="height:45px;" type="number" class="form-control" required [(ngModel)]="projet.stade" id="stade" name="stade" #stadeControl="ngModel">
+        <span class="help-block" *ngIf="stadeControl.invalid && stadeControl.touched">هذه الخانة إجبارية</span>
+
+      </div>
+       
+      <div class="form-group col-md-6" [class.has-error]="secteurControl.invalid && secteurControl.touched">
+      <label>القطاع</label>
+      <select style="height:45px;" class="form-control" [(ngModel)]="secteur.type_secteur" id="type_secteur" name="type_secteur" #secteurControl="ngModel">
+        <option value='' disabled selected>secteur</option>
+        <option *ngFor="let secteurNom of secteurKeys" [value]="enumSecteur[secteurNom]"> {{enumSecteur[secteurNom]}} </option>
+
+      </select>
+      <span class="help-block" *ngIf="secteurControl.invalid && secteurControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+    </div>
+    
+  <div style="display:inline-block;width:970px;position:relative;bottom:125px;">
+    <div class="form-group col-md-6">
+      <div style="position:relative;top:38px;">
+      <input type="radio" id="mouaatal" name="flag" value="معطل" required [(ngModel)]="projet.flag"> 
+      <label for="mouaattal"> معطل </label>
+    </div>
+    <div style="position:relative;right:100px;top:10px;">
+      <input type="radio" id="ghayr_mouaatal" name="flag" value="غير معطل" required [(ngModel)]="projet.flag" >
+      <label for="ghayr_mouaatal"> غير معطل </label><br>
+    </div>
+    </div>
+
+    <div class="form-group col-md-6" [class.has-error]="lieuProjetControl.invalid && lieuProjetControl.touched">
+      <label>مكان التنفيذ</label>
+    <select style="height:45px;" class="form-control" [(ngModel)]="projet.lieu_projet" id="lieu_projet" name="lieu_projet" #lieuProjetControl="ngModel">
+      <option value='' disabled selected>lieu</option>
+      <option *ngFor="let gouvernoratNom of gouvernoratKeys" [value]="gouvernorat[gouvernoratNom]"> {{gouvernorat[gouvernoratNom]}} </option>
+
+    </select>
+    <span class="help-block" *ngIf="lieuProjetControl.invalid && lieuProjetControl.touched">هذه الخانة إجبارية</span>
+
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" style="position:relative;right:440px;bottom:122px;">تعديل </button> 
+
+
+
+
+</form>
+
+
+
+
+</div>
+</div>
+
+

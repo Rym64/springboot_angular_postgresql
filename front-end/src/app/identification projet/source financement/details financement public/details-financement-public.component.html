@@ -1,0 +1,20 @@
+
+<button style="border:none;outline:none;background-color: white;position: relative;left:25px;bottom:20px" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+<br>
+<div *ngFor="let projet of projetsList">
+<a>الرمز: </a>
+ {{projet.code_financement_public}}
+<br>
+<a>التسمية: </a>
+ {{projet.libelle_financement_public}}
+<br>
+<a>المبلغ: </a>
+ {{projet.montant_financement_public}}
+<br>
+<a>المبلغ محيّن: </a>
+ {{projet.montant_financement_public_actualise}}
+<br>
+<a>تاريخ التحيين: </a>
+ {{projet.date_actualisation_financement_public | date : 'yyyy-MM-dd' }}
+<br>
+</div>

@@ -1,0 +1,75 @@
+<mat-expansion-panel class="mat-elevation-z0" #thisPanel hideToggle>
+    <mat-expansion-panel-header class="disable_ripple">
+   
+    <div *ngIf="!thisPanel.expanded"><mat-icon>add</mat-icon></div>
+    <div *ngIf="thisPanel.expanded"><mat-icon>clear</mat-icon></div>
+    </mat-expansion-panel-header>
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      <img src="../assets/images/thebluetitle.png" width="350" height="110">
+      <h1 style="color:white;text-align: center;position:relative;bottom:87px;">إضافة دُفعة طلب العرض </h1>
+    </div>
+    <br>
+    <br>
+  <form class="rtl" (ngSubmit)="onSubmit()" >
+  
+  
+
+
+   <div style="display:inline-block;width:1145px;">
+  <div class="form-group col-md-6" [class.has-error]="montantControl.invalid && montantControl.touched">
+    <label >المبلغ    </label>
+    <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="lotAppelOffre.montant" id="montant" name="montant" #montantControl="ngModel">
+    <span class="help-block" *ngIf="montantControl.invalid && montantControl.touched">هذه الخانة إجبارية</span>
+  
+  </div>
+  
+  <div class="form-group col-md-6" [class.has-error]="codeControl.invalid && codeControl.touched">
+    <label >الرمز  </label>
+    <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="lotAppelOffre.code" id="code" name="code" #codeControl="ngModel">
+    <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+  
+  </div>
+</div>  
+  
+  
+  
+
+ 
+  
+  
+  
+  <div style="display:inline-block;width:1145px;">
+  <div  class="form-group col-md-6" [class.has-error]="dateLotControl.invalid && dateLotControl.touched">
+    <label >                تاريخ الدفع   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </label>
+  <mat-form-field appearance="fill" [style.width.px]=540>
+  <mat-label>إختيار تاريخ </mat-label>
+  <input  matInput [matDatepicker]="picker4" required [(ngModel)]="lotAppelOffre.date_lot" id="date_lot" name="date_lot" #dateLotControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+  <mat-datepicker #picker4></mat-datepicker>
+  </mat-form-field>
+  <span class="help-block" *ngIf="dateLotControl.invalid && dateLotControl.touched">هذه الخانة إجبارية</span>
+  
+  </div>
+  
+  <div class="form-group col-md-6" [class.has-error]="typeLotControl.invalid && typeLotControl.touched">
+    <label >type lot   </label>
+    <select class="form-control" [(ngModel)]="lotAppelOffre.type_lot" id="type_lot" name="type_lot" #typeLotControl="ngModel" style="height: 50px">
+      <option value='' disabled selected>type lot</option>
+      <option *ngFor="let typeLotNom of typesLotsKeys" [value]="typeLot[typeLotNom]"> {{typeLot[typeLotNom]}} </option>
+
+    </select>
+    <span class="help-block" *ngIf="typeLotControl.invalid && typeLotControl.touched">هذه الخانة إجبارية</span>
+  
+  </div>
+</div>
+  
+  
+  <br>
+  
+  <button style="position:relative;right:535px;top:30px;" type="submit" class="btn btn-primary">إضافة </button>
+  </form>
+  </div>
+  <br>
+  </mat-expansion-panel>

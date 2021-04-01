@@ -1,0 +1,34 @@
+.rectangle3 {
+    width: 1200px;
+    position: absolute;
+    background: rgba(255, 255, 255);
+    margin-right: 80px;
+    border-radius: 20px;
+    z-index: -1;
+  }
+
+  th {
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px solid #cccccc;
+    background-color: #dddfdc;
+    color: black;
+  }
+
+  td {
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    border-left: 2px solid #cccccc;
+    color: black;
+  }
+
+  .default-color {
+    color: green;
+  }
+  .blue {
+    color: blue;
+  }
