@@ -1,0 +1,142 @@
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+            <div class="container">
+                <div class="row">
+
+
+                <div class="col-md-12" style="font-size: 15px;">
+                    
+                    <form class="form-horizontal" id="create-cartegrise">
+            <fieldset>
+
+            <!-- Form Name -->
+            <legend style="padding-left: 100px;">{{'Create carte grise'}}</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+            <label class="col-md-4 control-label" for="firstname" style="color: navy;" >Firstname :</label> 
+            <div class="col-md-4">
+            <input id="firstname" name="firstname" type="text" placeholder="your firstname" [(ngModel)]="cg.firstname" class="form-control input-md">
+            <span class="help-block" style="color: chocolate;">Firstname of user</span>  
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="lastname" style="color: navy;" >Lastname :</label> 
+                <div class="col-md-4">
+                <input id="lastname" name="lastname" type="text" placeholder="your lastname" [(ngModel)]="cg.lastname" class="form-control input-md">
+                <span class="help-block" style="color: chocolate;">Lastname of user</span>  
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="cin" style="color: navy;" >Cin :</label> 
+                    <div class="col-md-4">
+                    <input id="cin" name="cin" type="text" placeholder="your cin" [(ngModel)]="cg.cin" class="form-control input-md">
+                    <span class="help-block" style="color: chocolate;">Cin of user</span>  
+                    </div>
+                    </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="address" style="color: navy;">Address :</label>  
+                    <div class="col-md-4">
+                    <input id="adress" name="address" type="text" placeholder="your address" [(ngModel)]="cg.address" class="form-control input-md">
+                    <span class="help-block" style="color: chocolate;">Address of user</span>  
+                    </div>
+                    </div>
+                
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="phone" style="color: navy;">Phone :</label>  
+                            <div class="col-md-4">
+                            <input id="phone" name="phone" type="text" placeholder="your phone" [(ngModel)]="cg.phone" class="form-control input-md">
+                            <span class="help-block" style="color: chocolate;">Phone of user</span>  
+                            </div>
+                            </div>
+                    
+
+                            <div class="form-group">
+                            <label class="col-md-4 control-label" for="datebirth" style="color: navy;">Date of birth :</label>
+                            <div class="col-md-4">
+                                <div class="input-group">                
+                                <input type="text" class="form-control" name="datebirth" [(ngModel)]="cg.datebirth" id="datebirth" >
+                            </div>
+                                <p class="help-block" style="color: chocolate;">Date of birth of user</p>
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="placebirth" style="color: navy;">Place of birth :</label>
+                                <div class="col-md-4">
+                                    <div class="input-group">                
+                                    <input type="text" class="form-control" name="placebirth" [(ngModel)]="cg.placebirth" id="placebirth" >
+                                </div>
+                                    <p class="help-block" style="color: chocolate;">Place of birth of user</p>
+                                </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="nationality" style="color: navy;">Nationality :</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">                
+                                        <input type="text" class="form-control" name="nationality" [(ngModel)]="cg.nationality" id="nationality" >
+                                    </div>
+                                        <p class="help-block" style="color: chocolate;">Nationality of user</p>
+                                    </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="city" style="color: navy;">City :</label>
+                                        <div class="col-md-4">
+                                            <div class="input-group">                
+                                            <input type="text" class="form-control" name="city" [(ngModel)]="cg.city" id="city" >
+                                        </div>
+                                            <p class="help-block" style="color: chocolate;">City of user</p>
+                                        </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="postalcode" style="color: navy;">Postal code :</label>
+                                            <div class="col-md-4">
+                                                <div class="input-group">                
+                                                <input type="text" class="form-control" name="postalcode" [(ngModel)]="cg.postalcode" id="postalcode" >
+                                                </div>
+                                                <p class="help-block" style="color: chocolate;">Postal code </p>
+                                            </div>
+                                            </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="email" style="color: navy;">Email :</label>
+                                            <div class="col-md-4">
+                                                <div class="input-group"> 
+                                                <input id="email" name="email" [(ngModel)]="cg.email" class="form-control" placeholder="yourname@yourdomain.com" type="email">
+                                                </div>
+                                                <p class="help-block" style="color: chocolate;">Email of user</p>
+                                            </div>
+                                        </div>
+            
+            <!-- Button -->
+            <div class="form-group"  style="margin-left: 200px;padding-left: 220px;">
+                <div class="col-md-4">
+                    <button class="btn btn-secondary mr-2" routerLink="/home">
+                    << Go Back
+                </button>
+        
+                <button type="submit"
+                        class="btn btn-success"
+                        (click)="saveCartegrise()">
+                    Save
+                </button>
+                </div>
+                </div>
+
+            </fieldset>
+            </form>
+
+                </div> 
+
+            </div>
+
+        </div>

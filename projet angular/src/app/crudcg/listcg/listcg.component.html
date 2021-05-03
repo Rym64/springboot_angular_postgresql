@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="row">    
+  <div class=col-md-12>
+      
+      <form id="form-list-user">
+              <legend>List of carte grises</legend>
+      
+      <div class="pull-right">
+          <a class="btn btn-default-btn-xs btn-primary" (click)="refreshList()"><i class="glyphicon glyphicon-refresh"></i> Refresh</a>
+      </div>
+  <br><br><br>
+      <table class="table table-bordered table-condensed table-hover">
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Cin</th>
+                  <th>Address</th>
+                  <th>Phone</th>
+                  <th>Date of birth</th>
+                  <th>Place of birth</th>
+                  <th>Nationality</th>
+                  <th>City</th>
+                  <th>Postal code</th>
+                  <th>Email</th>
+                  <th>Actions</th>
+              </tr>
+                  
+          </thead>
+          <tbody id="form-list-client-body">
+              <tr *ngFor="let cg of cgs; let i = index" 
+              [class.active]="i == currentIndex"
+                (click)="setSelected(cg, i)">
+                  <td>{{ cg.id }}</td>
+                  <td>{{ cg.firstname }}</td>
+                  <td>{{ cg.lastname }}</td>
+                  <td>{{ cg.cin }}</td>
+                  <td>{{ cg.address }}</td>
+                  <td>{{ cg.phone }}</td>
+                  <td>{{ cg.datebirth }}</td>
+                  <td>{{ cg.placebirth }}</td>
+                  <td>{{ cg.nationality }}</td>
+                  <td>{{ cg.city }}</td>
+                  <td>{{ cg.postalcode }}</td>
+                  <td>{{ cg.email }}</td>
+                  <td *ngIf="selected">   
+                        <a title="delete this carte grise" class="btn btn-default btn-sm " (click)="deleteCartegrise()"> <i class="glyphicon glyphicon-trash text-danger"></i> </a>
+                    </td>
+              </tr>
+          </tbody>
+      </table>
+      </form>
+  
+      
+  </div>
+        
+    </div>
+  </div>

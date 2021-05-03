@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="row">    
+  <div class=col-md-12>
+      
+      <form id="form-list-user">
+              <legend>List of identity cart</legend>
+      
+      <div class="pull-right">
+          <a class="btn btn-default-btn-xs btn-primary" (click)="refreshList()"><i class="glyphicon glyphicon-refresh"></i> Refresh</a>
+      </div>
+  <br><br><br>
+      <table class="table table-bordered table-condensed table-hover">
+          <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+            
+                 
+                  <th>Address</th>
+                  <th>Phone</th>
+                  <th>Date of birth</th>
+                  <th>Place of birth</th>
+                  <th>Nationality</th>
+                  <th>City</th>
+                  <th>Postal code</th>
+                  <th>Email</th>
+                  <th>Fathername</th>
+                  <th>Mathername</th>
+                  <th>job</th>
+
+                  <th>Actions</th>
+              </tr>
+                  
+          </thead>
+          <tbody id="form-list-client-body">
+              <tr *ngFor="let cin of cins; let i = index" 
+              [class.active]="i == currentIndex"
+                (click)="setSelected(cin, i)">
+                  <td>{{ cin.id }}</td>
+                  <td>{{ cin.firstname }}</td>
+                  <td>{{ cin.lastname }}</td>
+                  <td>{{ cin.address }}</td>
+                  <td>{{ cin.phone }}</td>
+                  <td>{{ cin.datebirth }}</td>
+                  <td>{{ cin.placebirth }}</td>
+                  <td>{{ cin.nationality }}</td>
+                  <td>{{ cin.city }}</td>
+                  <td>{{ cin.postalcode }}</td>
+                  <td>{{ cin.email }}</td>
+                  <td>{{ cin.mothername }}</td>
+                  <td>{{ cin.fathername }}</td>
+                  <td>{{ cin.job }}</td>
+                  <td *ngIf="selected">   
+                        <a title="delete this identity cart" class="btn btn-default btn-sm " (click)="deletCartidentity()"> <i class="glyphicon glyphicon-trash text-danger"></i> </a>
+                    </td>
+              </tr>
+          </tbody>
+      </table>
+      </form>
+  
+      
+  </div>
+        
+    </div>
+  </div>

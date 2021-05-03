@@ -1,0 +1,53 @@
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <div class="container">
+      <div class="row">    
+    <div class=col-md-12>
+        
+        <form id="form-list-user">
+                <legend>List of users</legend>
+        
+        <div class="pull-right">
+            <a class="btn btn-default-btn-xs btn-primary" (click)="refreshList()"><i class="glyphicon glyphicon-refresh"></i> Refresh</a>
+            <a class="btn btn-default-btn-xs btn-success" routerLink="/form"><i class="glyphicon glyphicon-plus"></i> New</a>
+        </div>
+    <br><br><br>
+        <table class="table table-bordered table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Date of birth</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                    
+            </thead>
+            <tbody id="form-list-client-body">
+                <tr *ngFor="let user of users; let i = index"
+                [class.active]="i == currentIndex"
+                (click)="setSelected(user, i)">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.datebirth }}</td>
+                    <td>{{ user.email }}</td>
+                    <td *ngIf="selected">   
+                        <a title="edit this user" class="btn btn-default btn-sm "  routerLink="/form/{{ selected.id }}"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>
+                        <a title="delete this user" class="btn btn-default btn-sm " (click)="deleteUser()"> <i class="glyphicon glyphicon-trash text-danger"></i> </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </form>
+    
+        
+    </div>
+          
+      </div>
+    </div>

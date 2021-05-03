@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <div class="container">
+        <div class="row">
+
+
+    <!-- FORM  -->	    
+        <div class="col-md-12" style="font-size: 15px;">
+            
+            <form class="form-horizontal" id="add-user">
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend style="padding-left: 100px;">{{user.id ? 'Edit User' : 'Create new User'}}</legend>
+
+    <!-- Text input-->
+    <div class="form-group">
+    <label class="col-md-4 control-label" for="username" style="color: navy;" >Username :</label> 
+    <div class="col-md-4">
+    <input id="username" name="username" type="text" placeholder="your username" [(ngModel)]="user.username" class="form-control input-md">
+    <span class="help-block" style="color: chocolate;">Username of user</span>  
+    </div>
+    </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="address" style="color: navy;">Address :</label>  
+            <div class="col-md-4">
+            <input id="adress" name="address" type="text" placeholder="your address" [(ngModel)]="user.address" class="form-control input-md">
+            <span class="help-block" style="color: chocolate;">Address of user</span>  
+            </div>
+            </div>
+        
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="phone" style="color: navy;">Phone :</label>  
+                    <div class="col-md-4">
+                    <input id="phone" name="phone" type="text" placeholder="your phone" [(ngModel)]="user.phone" class="form-control input-md">
+                    <span class="help-block" style="color: chocolate;">Phone of user</span>  
+                    </div>
+                    </div>
+            
+
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="datebirth" style="color: navy;">Date of birth :</label>
+                      <div class="col-md-4">
+                          <div class="input-group">                
+                          <input type="text" class="form-control" name="datebirth" [(ngModel)]="user.datebirth" id="datebirth" >
+                      </div>
+                          <p class="help-block" style="color: chocolate;">Date of birth of user</p>
+                      </div>
+                      </div>
+
+
+          <div class="form-group">
+    <label class="col-md-4 control-label" for="email" style="color: navy;">Email :</label>
+    <div class="col-md-4">
+        <div class="input-group"> 
+        <input id="email" name="email" [(ngModel)]="user.email" class="form-control" placeholder="yourname@yourdomain.com" type="email">
+        </div>
+        <p class="help-block" style="color: chocolate;">Email of user</p>
+    </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="password" style="color: navy;">Password :</label>
+        <div class="col-md-4">
+            <div class="input-group">
+           
+            <input type="password" class="form-control" name="password" [(ngModel)]="user.password" id="password" placeholder="************">
+        </div>
+            <p class="help-block" style="color: chocolate;">Password of user</p>
+        </div>
+        </div>
+
+    
+    <!-- Button -->
+    <div class="form-group"  style="margin-left: 200px;padding-left: 220px;">
+        <div class="col-md-4">
+            <button class="btn btn-secondary mr-2" routerLink="/listuser">
+              << Go Back
+          </button>
+  
+          <button type="submit"
+                  class="btn btn-success"
+                  (click)="saveUser()">
+              Save
+          </button>
+        </div>
+        </div>
+
+    </fieldset>
+    </form>
+
+        </div> 
+
+    </div>
+
+</div>
