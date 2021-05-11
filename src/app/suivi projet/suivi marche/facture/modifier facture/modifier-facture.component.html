@@ -1,0 +1,74 @@
+<div style="background-color: #f0f0f0;">
+<button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+<div style="width:1000px;background-color: #f0f0f0;" class="container">
+  <div class="row" style="text-align: center;">
+    <img src="../assets/images/thegreentitle.png" width="300" height="110">
+    <h1 style="color:white;text-align: center;position:relative;bottom:87px;">تعديل فاتورة  </h1>
+  </div>
+  <br>
+  <br>
+<form class="rtl" (ngSubmit)="processForm()" >
+
+
+
+<div style="display:inline-block;width:970px;">
+  <div  class="form-group col-md-6" [class.has-error]="dateFactureControl.invalid && dateFactureControl.touched">
+    <label >                تاريخ الفاتورة   
+  </label>
+  <br>
+  <mat-form-field appearance="fill" [style.width.px]=460>
+  <mat-label>إختيار تاريخ </mat-label>
+  <input  matInput [matDatepicker]="picker3" required [(ngModel)]="facture.date_facture" id="date_facture" name="date_facture" #dateFactureControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+  <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field>
+  <span class="help-block" *ngIf="dateFactureControl.invalid && dateFactureControl.touched">هذه الخانة إجبارية</span>
+  
+  </div>
+
+<div class="form-group col-md-6" [class.has-error]="codeControl.invalid && codeControl.touched">
+  <label >الرمز  </label>
+  <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="facture.code" id="code" name="code" #codeControl="ngModel">
+  <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+</div>
+
+
+
+
+<div style="display:inline-block;width:970px;">
+<div class="form-group col-md-6" [class.has-error]="montantPayeControl.invalid && montantPayeControl.touched">
+  <label >المبلغ المدفوع     </label>
+  <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="facture.montant_paye" id="montant_paye" name="montant_paye" #montantPayeControl="ngModel">
+  <span class="help-block" *ngIf="montantPayeControl.invalid && montantPayeControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+<div class="form-group col-md-6" [class.has-error]="montantControl.invalid && montantControl.touched">
+  <label >المبلغ    </label>
+  <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="facture.montant" id="montant" name="montant" #montantControl="ngModel">
+  <span class="help-block" *ngIf="montantControl.invalid && montantControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+</div>
+
+<div style="position:relative;right:13px;width:965px;"  [class.has-error]="datePayementControl.invalid && datePayementControl.touched">
+  <label >                تاريخ الدفع   
+</label>
+<br>
+<mat-form-field appearance="fill" [style.width.px]=965>
+<mat-label>إختيار تاريخ </mat-label>
+<input  matInput [matDatepicker]="picker4" required [(ngModel)]="facture.date_payement" id="date_payement" name="date_payement" #datePayementControl="ngModel">
+<mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+<mat-datepicker #picker4></mat-datepicker>
+</mat-form-field>
+<span class="help-block" *ngIf="datePayementControl.invalid && datePayementControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+
+<br>
+
+<button style="position:relative;right:450px;" type="submit" class="btn btn-primary">تعديل </button>
+</form>
+</div>
+</div>

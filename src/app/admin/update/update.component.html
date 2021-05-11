@@ -1,0 +1,54 @@
+<div style="background-color:#f0f0f0">
+    <button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+
+<div style="width:1000px;" class="container">
+    <div class="row" style="text-align: center;">
+      <img src="../assets/images/thegreentitle.png" width="550" height="110">
+      <h1 style="color:white;text-align: center;position:relative;bottom:87px;">تعديل  مهمة للمستخدم حسب المشروع   </h1>
+    </div>
+   
+   
+  <form class="rtl" (ngSubmit)="processForm()" >
+  
+  
+  
+  
+  <div style="display:inline-block;width:970px;">
+  <div class="form-group col-md-6" >
+    <label > المهمة     </label>
+    <select style="height:50px;" class="form-control" [(ngModel)]="utilisateurProfilProjet.profil" id="profil" name="profil" >
+      <option value='' disabled selected>lieu</option>
+      <option *ngFor="let typeProfilNom of typeProfilKeys" [value]="typeProfil[typeProfilNom]"> {{typeProfil[typeProfilNom]}} </option>
+  
+    </select>
+  </div>
+  
+  <div class="form-group col-md-6" >
+    <label >إسم المستخدم    </label>
+    <select style="height:50px;" class="form-control" [(ngModel)]="utilisateurProfilProjet.user" id="utilisateur" name="utilisateur" >
+      <option value='' disabled selected>lieu</option>
+      <option *ngFor="let Nom of usersList2" [value]="Nom.username"> {{Nom.username}} </option>
+  
+    </select>
+  </div>
+  </div>
+  
+  
+  <div style="position:relative;right:13px;" >
+    <label >رمز المشروع </label>
+    <select class="form-control" [(ngModel)]="utilisateurProfilProjet.projet" id="projet" name="projet"  style="height: 50px;width:945px;">
+      <option [ngValue]="etat" selected >etat</option>
+      <option *ngFor="let projetNom of projetsList1" [value]="projetNom.code"> {{projetNom.code}} </option>
+  
+    </select>
+  
+  </div>
+  
+  
+  
+  <br>
+  
+  <button style="position:relative;right:450px;" type="submit" class="btn btn-primary">تعديل  </button>
+  </form>
+  </div>
+</div>

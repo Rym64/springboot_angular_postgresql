@@ -1,0 +1,120 @@
+
+
+<div style="background-color: #f0f0f0;">
+  <button style="border:none;outline:none;background-color: Transparent;" mat-dialog-close>
+    <mat-icon>clear</mat-icon> 
+  </button>
+  
+  <div style="width:400px;background-color: #f0f0f0;" class="container">
+  
+  <div class="row" style="text-align: center;height:70px;position:relative;right:100px;bottom:30px;display:inline-block;">
+    <img src="../assets/images/thegreentitle.png" width="200" height="60">
+    <h1 style="color:white;text-align: center;position:relative;bottom:57px;font-size:20px;"> تعديل حساب </h1>
+  </div>
+  
+    <form style="position: relative;bottom:46px;left:25px;background-color: #f0f0f0;height:560px;" (ngSubmit)="processForm()">
+  
+  
+      
+      <span >
+        <label style="position: relative;right:42px;">الاسم</label>
+        <input  style="width:150px;position: relative;right:42px;" type="text" class="form-control" [(ngModel)]="user.name" id="name" name="name" required   >
+        <mat-icon style="position: relative;right:7px;bottom:30px;"> person_pin</mat-icon>
+      </span>
+  
+      <span >
+        <label style="position: relative;right:240px;bottom:67px;" > اللقب</label>
+        <input  style="width:150px;position: relative;right:245px;bottom:67px;" type="text" class="form-control" [(ngModel)]="user.last_name" id="last_name" name="last_name" required   >
+        <mat-icon style="position: relative;right:210px;bottom:97px;" > person_pin</mat-icon>
+      </span>
+  
+      <div style="text-align: center;position:relative;bottom:62px;">
+        <label >إسم المستخدم</label></div>
+      <input style="width: 350px;position:relative;bottom:62px;right:40px;" type="text" class="form-control" required [(ngModel)]="user.username" id="username" name="username" disabled >
+      <mat-icon style="position:relative;bottom:92px;right:7px;"> person</mat-icon>
+      
+  
+    
+  
+      <span >
+        <label style="position: relative;right:42px;bottom:40px;">البريد الالكتروني</label>
+        <input  style="width:150px;position: relative;right:42px;bottom:40px;" type="email" class="form-control" [(ngModel)]="user.email" id="email" name="email" required   >
+        <mat-icon style="position: relative;right:7px;bottom:70px;"> alternate_email</mat-icon>
+      </span>
+  
+      <span >
+        <label style="position: relative;right:240px;bottom:107px;" >كلمة السر</label>
+        <input   style="width:150px;position: relative;right:245px;bottom:107px;" type="password" class="form-control" [(ngModel)]="user.password" required id="password" name="password" >
+        <mat-icon style="position: relative;right:210px;bottom:137px;" > lock</mat-icon>
+      </span>
+  
+      <div style="position:relative;bottom:110px;text-align:center;" >
+        <label >               تاريخ الولادة 
+      </label>
+      <br>
+      <mat-icon  ></mat-icon>
+      <mat-form-field appearance="fill">
+      <mat-label>إختيار تاريخ </mat-label>
+      <input matInput [matDatepicker]="picker3"  required [(ngModel)]="user.date_naissance" id="date_naissance" name="date_naissance"  >
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+      </mat-form-field>
+      
+      
+      </div>
+  
+      <span>
+        <label style="position: relative;right:42px;bottom:110px;">العنوان</label>
+        <select style="width:150px;position: relative;right:42px;bottom:110px;" type="text" class="form-control" required id="adresse" name="adresse" >
+          <option [value]="" disabled selected>choose one</option>
+          <option *ngFor="let cheese of gouvernoratKeys"  [value]="gouvernorat[cheese]" > {{gouvernorat[cheese]}} </option>
+        </select>
+        <mat-icon style="position: relative;right:7px;bottom:140px;"></mat-icon>
+  
+      </span>
+  
+  
+      <div style="position:relative;bottom:165px;right:230px;">
+        <input type="radio" [(ngModel)]="user.sexe" id="femelle" name="sexe" value="أنثى" required >
+        <label for="ghayr_mouaatal"> أنثى </label><br>
+      </div>
+  
+      <div style="position:relative;right:300px;bottom:189px;" >
+        <input type="radio" [(ngModel)]="user.sexe" id="male" name="sexe" value="ذكر" required > 
+        <label for="mouaattal"> ذكر  </label><br>
+      </div>
+     
+     
+  
+  
+  
+     
+  
+  
+  
+  
+      <div style="text-align: center;position:relative;bottom:150px;display:inline-block;right:100px;" class="form-group">
+        <label>تعديل صورة   </label>
+  
+            <input style="margin: 0 auto;" type="file" accept="image/*" (change)="onSelectFile($event)">
+  
+          </div>
+  
+         
+      
+  
+  
+  <div style="position:relative;bottom:140px;right:150px;">
+      <button  type="submit" class="btn btn-primary">تعديل </button>
+    </div>
+  
+      <span style="position: relative;bottom:250px;right:50px;">          <img [src]="imgURL"  height="70" width="70" *ngIf="imgURL">
+      </span>
+  
+    </form>
+    </div>
+  </div>
+  
+  
+  
+  

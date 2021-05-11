@@ -1,0 +1,99 @@
+
+       <mat-expansion-panel class="mat-elevation-z0" #thisPanel hideToggle>
+        <mat-expansion-panel-header class="disable_ripple">
+       
+          <div *ngIf="!thisPanel.expanded"><mat-icon>add</mat-icon></div>
+          <div *ngIf="thisPanel.expanded"><mat-icon>clear</mat-icon></div>
+        </mat-expansion-panel-header>
+<div class="container">
+  <div class="row" style="text-align: center;">
+    <img src="../assets/images/thebluetitle.png" width="300" height="110">
+    <h1 style="color:white;text-align: center;position:relative;bottom:87px;">إضافة تمويل آخر </h1>
+  </div>
+    <br>
+    <br>
+<form class="rtl" (ngSubmit)="onSubmit()" >
+
+
+<div style="display:inline-block;width:1145px;">
+  <div class="form-group col-md-6" [class.has-error]="libelleControl.invalid && libelleControl.touched">
+    <label >التسمية </label>
+    <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="autreFinancement.libelle" id="libelle" name="libelle" #libelleControl="ngModel">
+    <span class="help-block" *ngIf="libelleControl.invalid && libelleControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+  <div class="form-group col-md-6" [class.has-error]="codeControl.invalid && codeControl.touched">
+    <label >الرمز  </label>
+    <input style="height: 50px" type="text" class="form-control" required [(ngModel)]="autreFinancement.code" id="code" name="code" #codeControl="ngModel">
+    <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+</div>
+
+ 
+
+<div style="display:inline-block;width:1145px;">
+  <div  class="form-group col-md-6" [class.has-error]="dateAutreFinancementControl.invalid && dateAutreFinancementControl.touched">
+    <label >                تاريخ التمويل &nbsp;&nbsp;&nbsp;&nbsp;
+  </label>
+  <br>
+  <mat-form-field appearance="fill" [style.width.px]=540>
+  <mat-label>إختيار تاريخ </mat-label>
+  
+  <input  matInput [matDatepicker]="picker4" required [(ngModel)]="autreFinancement.date_autre_financement" id="date_autre_financement" name="date_autre_financement" #dateAutreFinancementControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+  <mat-datepicker #picker4></mat-datepicker>
+  </mat-form-field>
+  <span class="help-block" *ngIf="dateAutreFinancementControl.invalid && dateAutreFinancementControl.touched">هذه الخانة إجبارية</span>
+  
+  </div>
+
+
+  <div class="form-group col-md-6" [class.has-error]="montantControl.invalid && montantControl.touched">
+    <label >المبلغ  </label>
+    <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="autreFinancement.montant" id="montant" name="montant" #montantControl="ngModel">
+    <span class="help-block" *ngIf="montantControl.invalid && montantControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+</div>
+  
+
+  
+ 
+<div style="display:inline-block;width:1145px;">
+
+  
+ 
+  <div  class="form-group col-md-6" [class.has-error]="dateActualisationControl.invalid && dateActualisationControl.touched">
+    <label >                تاريخ التحيين &nbsp;&nbsp;&nbsp;&nbsp;
+  </label>
+  <br>
+  <mat-form-field appearance="fill" [style.width.px]=540>
+  <mat-label>إختيار تاريخ </mat-label>
+  
+  <input  matInput [matDatepicker]="picker3" required [(ngModel)]="autreFinancement.date_actualisation" id="date_actualisation" name="date_actualisation" #dateActualisationControl="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+  <mat-datepicker #picker3></mat-datepicker>
+  </mat-form-field>
+  <span class="help-block" *ngIf="dateActualisationControl.invalid && dateActualisationControl.touched">هذه الخانة إجبارية</span>
+  
+</div>
+
+<div class="form-group col-md-6" [class.has-error]="montantActualiseControl.invalid && montantActualiseControl.touched" >
+  <label > المبلغ محيّن  </label>
+  <input style="height: 50px" type="number" class="form-control" required [(ngModel)]="autreFinancement.montant_actualise" id="montant_actualise" name="montant_actualise" #montantActualiseControl="ngModel">
+  <span class="help-block" *ngIf="montantActualiseControl.invalid && montantActualiseControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+</div>
+
+
+  
+<br>
+
+<button style="position:relative;right:530px;top:40px;" type="submit" class="btn btn-primary">إضافة </button>
+</form>
+</div>
+<br>
+<br>
+</mat-expansion-panel>

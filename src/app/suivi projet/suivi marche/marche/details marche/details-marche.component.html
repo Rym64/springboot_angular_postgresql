@@ -1,0 +1,44 @@
+<button style="border:none;outline:none;background-color: white;position: relative;left:25px;bottom:20px" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+<br>
+<a>الرمز: </a>
+ {{marche.code}}
+<br>
+<a>التسمية: </a>
+ {{marche.libelle}}
+<br>
+<a>المزوّد: </a>
+ {{marche.fournisseur}}
+<br>
+<a>المبلغ بالعملة: </a>
+ {{marche.montant}}
+<br>
+<a>العملة: </a>
+ {{marche.devise}}
+<br>
+<a>المبلغ بالدينار التونسي: </a>
+ {{marche.montant_dt}}
+<br>
+<a>سعر الصرف: </a>
+ {{marche.taux_dechange}}
+
+<br>
+<a>المبلغ محيّن: </a>
+ {{marche.montant_actualise | date : 'yyyy-MM-dd'}}
+<br>
+<a>تاريخ التحيين : </a>
+ {{marche.date_actualisation | date : 'yyyy-MM-dd'}}
+<br>
+<a>تاريخ الامضاء : </a>
+ {{marche.date_signature | date : 'yyyy-MM-dd'}}
+<br>
+<a>مدة الأشغال : </a>
+ {{marche.periode_travail}}
+<br>
+<a>تاريخ الإنتهاء التقديري : </a>
+ {{marche.date_fin_travaux_estimee | date : 'yyyy-MM-dd'}}
+<br>
+<a>تاريخ الإنتهاء الفعلي : </a>
+ {{marche.date_fin_travaux_reelle | date : 'yyyy-MM-dd'}}
+<br>
+<a>مستوى التقدم: </a>
+ {{marche.niveau}}

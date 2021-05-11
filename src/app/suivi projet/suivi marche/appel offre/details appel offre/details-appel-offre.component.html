@@ -1,0 +1,19 @@
+<button style="border:none;outline:none;background-color: white;position: relative;left:25px;bottom:20px" mat-dialog-close ><mat-icon>clear</mat-icon></button>
+<br>
+<a>الرمز: </a>
+ {{appelOffre.code}}
+<br>
+<a>التسمية: </a>
+ {{appelOffre.libelle}}
+<br>
+<a>المبلغ التقديري: </a>
+ {{appelOffre.montant_estime}}
+<br>
+<a>المبلغ محيّن: </a>
+ {{appelOffre.montant_actualise}}
+<br>
+<a>تاريخ التحيين: </a>
+ {{appelOffre.date_actualisation | date : 'yyyy-MM-dd'}}
+<br>
+<a>etat: </a>
+ {{appelOffre.etat}}

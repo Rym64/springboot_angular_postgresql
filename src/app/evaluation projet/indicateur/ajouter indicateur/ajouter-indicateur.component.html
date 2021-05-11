@@ -1,0 +1,63 @@
+<mat-expansion-panel class="mat-elevation-z0" #thisPanel hideToggle>
+  <mat-expansion-panel-header class="disable_ripple">
+
+    <div *ngIf="!thisPanel.expanded">
+      <mat-icon>add</mat-icon>
+    </div>
+    <div *ngIf="thisPanel.expanded">
+      <mat-icon>clear</mat-icon>
+    </div>
+  </mat-expansion-panel-header>
+<div class="container">
+  <div class="row" style="text-align: center;">
+    <img src="../assets/images/thebluetitle.png" width="300" height="110">
+    <h1 style="color:white;text-align: center;position:relative;bottom:87px;">إضافة  مؤشر  </h1>
+  </div>
+  <br>
+  <br>
+
+<form (ngSubmit)="onSubmit()">
+  <div style="display:inline-block;width:1145px;">
+
+  <div class="form-group col-md-6" [class.has-error]="libelleControl.invalid && libelleControl.touched">
+    <label class="control-label"> التسمية</label>
+    <input style="height:50px;" type="text" class="form-control" required [(ngModel)]="indicateur.libelle" id="libelle" name="libelle" #libelleControl="ngModel">
+  <span class="help-block" *ngIf="libelleControl.invalid && libelleControl.touched">هذه الخانة إجبارية</span>
+  </div>
+
+
+  <div class="form-group col-md-6" [class.has-error]="codeControl.invalid && codeControl.touched">
+    <label  class="control-label">الرمز</label>
+    <input style="height:50px;" type="text" class="form-control" required [(ngModel)]="indicateur.code" id="code" name="code" #codeControl="ngModel">
+
+    <span class="help-block" *ngIf="codeControl.invalid && codeControl.touched">هذه الخانة إجبارية</span>
+
+  </div>
+</div>
+
+<div class="form-group" [class.has-error]="descriptionControl.invalid && descriptionControl.touched">
+  <label style="position:relative;right:15px" >الوصف</label>
+  <input style="position:relative;right:15px;width:1110px;height:50px;" type="text" class="form-control" required [(ngModel)]="indicateur.description" id="description" name="description" #descriptionControl="ngModel">
+  <span class="help-block" *ngIf="descriptionControl.invalid && descriptionControl.touched">هذه الخانة إجبارية</span>
+
+</div>
+
+
+
+
+
+<button type="submit" style="position:relative;top:30px;right:550px;" class="btn btn-primary">إضافة </button>
+
+
+
+</form>
+
+
+
+
+</div>
+<br>
+</mat-expansion-panel>
+
+
+

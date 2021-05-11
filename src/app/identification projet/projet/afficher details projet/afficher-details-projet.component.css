@@ -1,0 +1,48 @@
+.titre {
+    text-align: center;
+    font-size: 200%;
+  }
+
+  .form-row {
+    margin-bottom: 100px;
+    
+  }
+  .col-auto1 {
+    margin-top :-50px;
+    margin-left: 820px;
+  }   
+  .col-auto2 {
+    margin-top :20px;
+    margin-left: 650px;
+  } 
+  .rectangle3 {
+    width: 1200px;
+    height:1300px;
+    position: absolute;
+    background: rgba(255, 255, 255);
+    margin-right: 80px;
+    border-radius: 20px;
+    z-index: 0;
+  }
+
+  th {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px solid #cccccc;
+    background-color: #dddfdc;
+    color: black;
+  }
+
+  td {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    border-left: 2px solid #cccccc;
+    color: black;
+  }
+  
+
+  

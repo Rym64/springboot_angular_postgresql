@@ -1,0 +1,18 @@
+.rectangle3 {
+    width: 1200px;
+    height:900px;
+    position: absolute;
+    background: rgba(255, 255, 255);
+    margin-right: 80px;
+    border-radius: 20px;
+    z-index: 0;
+  }
+
+ 
+
+  ::ng-deep .mat-expansion-panel {
+    background-color : #f0f0f0; 
+  }
+
+ 
+  
