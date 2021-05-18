@@ -1,0 +1,58 @@
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="/home" class="nav-link" routerLink="/home"><img src="assets/logotunis.jpg" width="40px" height="50px" alt="{{ username }}"/>
+    </a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/listuser" class="nav-link" routerLink="listuser">List Citoyen</a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/form" class="nav-link" routerLink="form">Form Citoyen</a>
+      </li>
+
+      <li class="nav-item" *ngIf="showAgentBoard">
+        <a class="nav-link">Agent Board</a>
+      </li>
+      <li class="nav-item" *ngIf="showAgentBoard">
+        <a href="/agent" class="nav-link" routerLink="agent">Permis</a>
+      </li>
+      <li class="nav-item" *ngIf="showAgentBoard">
+        <a href="/agent" class="nav-link" routerLink="agent">Carte gris</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/user" *ngIf="showCitoyenBoard" routerLink="user">Home</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Signup</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Sigin</a>
+      </li>
+
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item" *ngIf="showAgentBoard">
+        <a href="/profile" class="nav-link" routerLink="profile"><img src="{{ image }}" width="40px" height="50px" alt="{{ username }}"/>
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/profile" class="nav-link" routerLink="profile"><img src="{{ image }}" width="40px" height="50px" alt="{{ username }}"/>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">LogOut</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
